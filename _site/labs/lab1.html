@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Notatki do przedmiotu PMK – lab1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../labs/lab2.html" rel="next">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab1.html">Laboratorium 1</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/PMK_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Na początek</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Laboratorium 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laboratorium 2</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#laboratorium-1" id="toc-laboratorium-1" class="nav-link active" data-scroll-target="#laboratorium-1">Laboratorium 1</a>
+  <ul class="collapse">
+  <li><a href="#zakres-tematyczny" id="toc-zakres-tematyczny" class="nav-link" data-scroll-target="#zakres-tematyczny">Zakres Tematyczny</a></li>
+  <li><a href="#obliczenia-numeryczne-w-języku-python" id="toc-obliczenia-numeryczne-w-języku-python" class="nav-link" data-scroll-target="#obliczenia-numeryczne-w-języku-python">Obliczenia numeryczne w języku Python</a></li>
+  <li><a href="#podstawy-pythona" id="toc-podstawy-pythona" class="nav-link" data-scroll-target="#podstawy-pythona">Podstawy Pythona</a>
+  <ul class="collapse">
+  <li><a href="#czym-jest-python-i-jak-działa" id="toc-czym-jest-python-i-jak-działa" class="nav-link" data-scroll-target="#czym-jest-python-i-jak-działa">Czym jest Python i jak działa</a></li>
+  <li><a href="#funkcje-i-przekazywanie-argumentów" id="toc-funkcje-i-przekazywanie-argumentów" class="nav-link" data-scroll-target="#funkcje-i-przekazywanie-argumentów">Funkcje i przekazywanie argumentów</a></li>
+  <li><a href="#args-i-kwargs" id="toc-args-i-kwargs" class="nav-link" data-scroll-target="#args-i-kwargs">*args i **kwargs</a></li>
+  <li><a href="#pętle" id="toc-pętle" class="nav-link" data-scroll-target="#pętle">Pętle</a></li>
+  <li><a href="#kontrola-przepływu-w-pętlach" id="toc-kontrola-przepływu-w-pętlach" class="nav-link" data-scroll-target="#kontrola-przepływu-w-pętlach">Kontrola przepływu w pętlach</a></li>
+  <li><a href="#generatory" id="toc-generatory" class="nav-link" data-scroll-target="#generatory">Generatory</a></li>
+  </ul></li>
+  <li><a href="#wybrane-biblioteki-numeryczne-pythona" id="toc-wybrane-biblioteki-numeryczne-pythona" class="nav-link" data-scroll-target="#wybrane-biblioteki-numeryczne-pythona">Wybrane biblioteki numeryczne Pythona</a>
+  <ul class="collapse">
+  <li><a href="#biblioteka-numpy" id="toc-biblioteka-numpy" class="nav-link" data-scroll-target="#biblioteka-numpy">Biblioteka Numpy</a></li>
+  <li><a href="#biblioteka-scipy" id="toc-biblioteka-scipy" class="nav-link" data-scroll-target="#biblioteka-scipy">Biblioteka Scipy</a></li>
+  <li><a href="#biblioteka-matplotlib" id="toc-biblioteka-matplotlib" class="nav-link" data-scroll-target="#biblioteka-matplotlib">Biblioteka MatPlotLib</a></li>
+  <li><a href="#biblioteka-pytorch" id="toc-biblioteka-pytorch" class="nav-link" data-scroll-target="#biblioteka-pytorch">Biblioteka PyTorch</a></li>
+  </ul></li>
+  <li><a href="#typy-danych" id="toc-typy-danych" class="nav-link" data-scroll-target="#typy-danych">Typy danych</a></li>
+  <li><a href="#błędy-numeryczne-i-ich-propagacja" id="toc-błędy-numeryczne-i-ich-propagacja" class="nav-link" data-scroll-target="#błędy-numeryczne-i-ich-propagacja">Błędy numeryczne i ich propagacja</a></li>
+  <li><a href="#zadania" id="toc-zadania" class="nav-link" data-scroll-target="#zadania">Zadania</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MDaniol/pmk-notes/edit/main/labs/lab1.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/MDaniol/pmk-notes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="laboratorium-1" class="level1">
+<h1>Laboratorium 1</h1>
+<section id="zakres-tematyczny" class="level2">
+<h2 class="anchored" data-anchor-id="zakres-tematyczny">Zakres Tematyczny</h2>
+<ol type="1">
+<li>Wprowadzenie w temat obliczeń numerycznych w języku Python</li>
+<li>Podstawy Pythona - Przypomnienie</li>
+<li>Podstawy użycia bibliotek:
+<ol type="1">
+<li>Numpy</li>
+<li>SciPy</li>
+<li>MatPlotLib</li>
+</ol></li>
+<li>Typy Danych w Numpy</li>
+<li>Błędy numeryczne i ich propagacja</li>
+<li>Biblioteka PyTorch</li>
+</ol>
+</section>
+<section id="obliczenia-numeryczne-w-języku-python" class="level2">
+<h2 class="anchored" data-anchor-id="obliczenia-numeryczne-w-języku-python">Obliczenia numeryczne w języku Python</h2>
+<p>Obliczenia numeryczne odgrywają kluczową rolę w wielu dziedzinach nauki i inżynierii. Python, dzięki swoim bibliotekom i cechom języka, stał się popularnym wyborem do przeprowadzania obliczeń numerycznych. Oto kilka powodów, dla których Python jest często wybierany do tego celu:</p>
+<p><strong>Czytelność:</strong> Składnia Pythona jest przejrzysta i zwięzła, co pozwala na łatwe pisanie i analizę kodu.</p>
+<p><strong>Biblioteki</strong>: Python posiada bogaty zestaw bibliotek do obliczeń numerycznych, takich jak:</p>
+<ul>
+<li>NumPy: Biblioteka do obliczeń numerycznych, oferująca wsparcie dla dużych tablic i macierzy wielowymiarowych oraz zestaw funkcji matematycznych do ich operowania.</li>
+<li>SciPy: Oparta na NumPy, jest to biblioteka służąca do bardziej zaawansowanych obliczeń i algorytmów naukowych.</li>
+<li>Pandas: Biblioteka do analizy danych, która dostarcza struktury danych i funkcje niezbędne do czyszczenia, agregacji i analizy danych.</li>
+</ul>
+<p><strong>Interaktywność</strong>: Narzędzia takie jak Jupyter Notebook pozwalają na interaktywne eksplorowanie danych i obliczeń, co jest niezmiernie użyteczne w analizie naukowej.</p>
+<p><strong>Integracja z innymi językami:</strong> Python może być łatwo zintegrowany z kodem napisanym w językach takich jak C, C++ czy Fortran, co pozwala na łączenie szybkości tych języków z elastycznością Pythona.</p>
+<p><strong>Wizualizacja Danych</strong>: Biblioteki takie jak Matplotlib, Seaborn czy Plotly umożliwiają tworzenie zaawansowanych wizualizacji, które są kluczowe do analizy wyników obliczeń numerycznych.</p>
+<p><strong>Wspólnota</strong>: Python ma ogromną społeczność, która stale tworzy i udostępnia nowe narzędzia, biblioteki i zasoby do obliczeń numerycznych.</p>
+<p><strong>Wszechstronność:</strong> Poza obliczeniami numerycznymi, Python jest językiem ogólnego zastosowania, co oznacza, że można go używać również do web developmentu, automatyki, analizy danych, sztucznej inteligencji i wielu innych zastosowań. Dzięki temu badacze i inżynierowie mogą korzystać z jednego języka do wielu różnych zadań.</p>
+<p><strong>Otwarte oprogramowanie</strong>: Python jest językiem open source, co oznacza, że jest dostępny za darmo i ma dużą społeczność deweloperów pracujących nad jego rozwojem.</p>
+</section>
+<section id="podstawy-pythona" class="level2">
+<h2 class="anchored" data-anchor-id="podstawy-pythona">Podstawy Pythona</h2>
+<section id="czym-jest-python-i-jak-działa" class="level3">
+<h3 class="anchored" data-anchor-id="czym-jest-python-i-jak-działa">Czym jest Python i jak działa</h3>
+<p>Python to wysokopoziomowy język programowania stworzony przez Guido van Rossuma i po raz pierwszy opublikowany w 1991 roku. Charakteryzuje się czytelną składnią, która pozwala programistom wyrażać koncepty w mniejszej ilości kodu niż w językach takich jak C++ czy Java.</p>
+<p>Działanie Pythona na poziomie szczegółów można opisać w kilku kluczowych krokach. W skrócie, działanie Pythona polega na tym, że kod źródłowy jest interpretowany przez interpreter Pythona w kod bajtowy, który następnie jest wykonywany przez maszynę wirtualną Pythona.</p>
+<p>Oto bardziej szczegółowy przegląd tego, jak to działa:</p>
+<ol type="1">
+<li><p><strong>Kod źródłowy</strong>: Wszystko zaczyna się od kodu źródłowego, który piszesz w pliku .py.</p></li>
+<li><p><strong>Kompilacja do kodu bajtowego:</strong> Gdy uruchamiasz skrypt Pythona, interpreter (zazwyczaj CPython, który jest standardową implementacją Pythona) kompiluje ten kod źródłowy w kod bajtowy. Kod bajtowy to niskopoziomowe, platformowo niezależne przedstawienie twojego kodu źródłowego. Zostaje on zapisany w plikach .pyc w katalogu <strong>pycache</strong>.</p></li>
+<li><p><strong>Maszyna wirtualna Pythona (PVM):</strong> Po skompilowaniu kodu, kod bajtowy jest przekazywany do Maszyny Wirtualnej Pythona (PVM). To tu właściwe wykonanie kodu ma miejsce. PVM interpretuje i wykonuje kod bajtowy linia po linii.</p></li>
+<li><p><strong>Zarządzanie pamięcią:</strong> Python automatycznie zarządza pamięcią dzięki mechanizmowi zwanej “garbage collection”. Python posiada wbudowany licznik odniesień, który śledzi liczbę odniesień do każdego obiektu w pamięci. Gdy liczba odniesień do obiektu spada do zera, pamięć zajmowana przez obiekt jest automatycznie zwalniana. Dodatkowo, cykliczne odniesienia (gdzie obiekty odnoszą się nawzajem, ale nie są dostępne z żadnej innej części kodu) są wykrywane przez garbage collector i odpowiednio czyszczone.</p></li>
+<li><p><strong>Rozszerzenia w języku C:</strong> Jednym z mocnych stron Pythona jest jego zdolność do integrowania się z językami niższego poziomu, takimi jak C. Możesz pisać rozszerzenia w C, które są potem dostępne jako moduły w Pythonie. To pozwala na pisania bardziej wydajnych fragmentów kodu w C i korzystania z nich w Pythonie.</p></li>
+<li><p><strong>Biblioteki standardowe:</strong> Python ma bogate biblioteki standardowe, które oferują funkcje dla wielu powszechnych zadań, od pracy z plikami i sieciami po analizę danych i tworzenie interfejsów graficznych.</p></li>
+<li><p><strong>Interfejs API C:</strong> Python ma dobrze zdefiniowany API dla języka C, co pozwala na tworzenie rozszerzeń w C oraz na osadzanie interpretera Pythona w aplikacjach napisanych w C.</p></li>
+</ol>
+</section>
+<section id="funkcje-i-przekazywanie-argumentów" class="level3">
+<h3 class="anchored" data-anchor-id="funkcje-i-przekazywanie-argumentów">Funkcje i przekazywanie argumentów</h3>
+<p>W języku Python najprostsza deklaracja funkcji wygląda następująco:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_first_function():</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Funkcja ta nie przyjmuje ani nie zwraca niczego.</p>
+<p>Funkcje mogą przyjmowac argumenty:</p>
+<p><strong>Argumenty pozycyjne:</strong> Są to najczęściej używane argumenty. Przekazujesz je w kolejności, w jakiej są wymienione w definicji funkcji.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> funkcja(a, b, c):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a, b, c)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>funkcja(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="co"># 1 2 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Argumenty nazwane</strong> (keyword arguments): Przekazujemy wartość, wskazując nazwę argumentu.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>funkcja(a<span class="op">=</span><span class="dv">1</span>, c<span class="op">=</span><span class="dv">3</span>, b<span class="op">=</span><span class="dv">2</span>)  <span class="co"># 1 2 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Domyślne wartości argumentów</strong>: Możesz ustawić domyślne wartości dla niektórych (lub wszystkich) argumentów.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> funkcja(a, b<span class="op">=</span><span class="dv">2</span>, c<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a, b, c)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>funkcja(<span class="dv">1</span>)  <span class="co"># 1 2 3</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>funkcja(<span class="dv">1</span>, c<span class="op">=</span><span class="dv">4</span>)  <span class="co"># 1 2 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="args-i-kwargs" class="level3">
+<h3 class="anchored" data-anchor-id="args-i-kwargs">*args i **kwargs</h3>
+<p><code>*args</code> i <code>**kwargs</code> to konwencje w Pythonie do obsługi zmiennej liczby argumentów w funkcjach. Dzięki nim możemy przekazywać do funkcji różną liczbę argumentów w sposób bardziej elastyczny.</p>
+<section id="args" class="level4">
+<h4 class="anchored" data-anchor-id="args">*args</h4>
+<p><code>*args</code> pozwala na przekazywanie dowolnej liczby pozycyjnych argumentów do funkcji. W ciele funkcji argumenty te są dostępne jako krotka. Przykład:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> suma(<span class="op">*</span>args):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(args)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(suma(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))  <span class="co"># 10</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(suma(<span class="dv">10</span>, <span class="dv">20</span>))      <span class="co"># 30</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="kwargs" class="level4">
+<h4 class="anchored" data-anchor-id="kwargs">**kwargs</h4>
+<p><code>**kwargs</code> pozwala na przekazywanie dowolnej liczby nazwanych (klucz-wartość) argumentów do funkcji. W ciele funkcji argumenty te są dostępne jako słownik. Przykład:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> opis_osoby(<span class="op">**</span>kwargs):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> klucz, wartosc <span class="kw">in</span> kwargs.items():</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>klucz<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>wartosc<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>opis_osoby(imie<span class="op">=</span><span class="st">"Jan"</span>, nazwisko<span class="op">=</span><span class="st">"Kowalski"</span>, wiek<span class="op">=</span><span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wynik:</p>
+<pre><code>imie: Jan
+nazwisko: Kowalski
+wiek: 30</code></pre>
+<p>Oczywiście, można łączyć <code>*args</code> i <code>**kwargs</code> w jednej funkcji:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> funkcja_przykladowa(a, b, <span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a, b)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(args)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(kwargs)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>funkcja_przykladowa(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, klucz1<span class="op">=</span><span class="st">"wartosc1"</span>, klucz2<span class="op">=</span><span class="st">"wartosc2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wynik:</p>
+<pre><code>1 2
+(3, 4, 5)
+{'klucz1': 'wartosc1', 'klucz2': 'wartosc2'}</code></pre>
+</section>
+</section>
+<section id="pętle" class="level3">
+<h3 class="anchored" data-anchor-id="pętle">Pętle</h3>
+<p>W Pythonie występują dwa rodzaje pętli: <code>for</code> i <code>while</code>.</p>
+<section id="pętla-for" class="level4">
+<h4 class="anchored" data-anchor-id="pętla-for">Pętla <code>for</code></h4>
+<p>Pętla <code>for</code> jest używana do iterowania po sekwencji (to może być lista, krotka, słownik, zbiór lub łańcuch znaków).</p>
+<p><strong>Składnia</strong>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> zmienna <span class="kw">in</span> sekwencja:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># instrukcje</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Przykład</strong>: Iteracja po liście:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> [<span class="st">"jablko"</span>, <span class="st">"gruszka"</span>, <span class="st">"pietruszka"</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fruit <span class="kw">in</span> fruits:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(fruit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Za pomocą funkcji <code>range()</code>, pętlę <code>for</code> można również użyć do wykonywania określonej liczby iteracji:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):  <span class="co"># będzie wykonywać pętlę od 0 do 4</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pętla-while" class="level4">
+<h4 class="anchored" data-anchor-id="pętla-while">Pętla <code>while</code></h4>
+<p>Pętla <code>while</code> wykonuje blok kodu tak długo, jak długo warunek pętli jest prawdziwy.</p>
+<p><strong>Składnia</strong>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> warunek:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># instrukcje</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Przykład</strong>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> count <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(count)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="kontrola-przepływu-w-pętlach" class="level3">
+<h3 class="anchored" data-anchor-id="kontrola-przepływu-w-pętlach">Kontrola przepływu w pętlach</h3>
+<p>Oprócz podstawowych instrukcji pętli, w Pythonie istnieją również instrukcje umożliwiające kontrolę przepływu w pętlach:</p>
+<ul>
+<li><p><code>break</code>: Przerywa działanie pętli i przechodzi do kolejnej instrukcji poza pętlą.</p>
+<p><strong>Przykład</strong>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><code>continue</code>: Przerywa bieżący cykl pętli i przechodzi do następnego cyklu.</p>
+<p><strong>Przykład</strong>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><code>else</code>: W Pythonie pętle mogą mieć opcjonalną klauzulę <code>else</code>. Wykonuje się ona, gdy pętla kończy swoje działanie normalnie (nie przez <code>break</code>).</p>
+<p><strong>Przykład</strong>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Pętla zakończona"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="generatory" class="level3">
+<h3 class="anchored" data-anchor-id="generatory">Generatory</h3>
+<p>Generator w Pythonie to specjalny rodzaj iteratora, który pozwala na generowanie wartości “na bieżąco” w miarę ich potrzeby, zamiast generować wszystkie wartości naraz i przechowywać je w pamięci. Dzięki temu generatory są bardziej wydajne pod względem alokacji pamięci. Ma to znaczenie zwłaszcza przy pracy z dużymi zbiorami danych.</p>
+<p>Generatory tworzy się głównie w dwóch sposobach:</p>
+<ol type="1">
+<li>Za pomocą funkcji i słowa kluczowego yield.</li>
+<li>Za pomocą wyrażeń generatora (podobnie jak list comprehension, ale w nawiasach okrągłych).</li>
+</ol>
+<p>Przykład:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> even_numbers_generator(n):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">yield</span> i</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>gen <span class="op">=</span> even_numbers_generator(<span class="dv">10</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> gen:</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(number)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Oto inny przykład generatora, który zwraca nieskończony ciąg liczb w postaci ciągu geometrycznego o zadanej podstawie:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> geometric_sequence(a, r):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> a</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        a <span class="op">*=</span> r</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Przykład użycia</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>gen <span class="op">=</span> geometric_sequence(<span class="dv">1</span>, <span class="dv">2</span>)  <span class="co"># podstawa 1, iloraz 2</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">next</span>(gen))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Generatory są także często używane do wczytywania danych</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Modelowanie sygnału PPG z wykorzystaniem generatora
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rozważmy generator danych dla symulacji sygnału fotopletyzmograficznego (PPG), który jest wykorzystywany do monitorowania tętna i saturacji tlenu w krwi. Sygnał PPG jest rejestrowany za pomocą czujnika optycznego umieszczonego na skórze, który wykrywa zmiany objętości krwi w naczyniach krwionośnych.</p>
+<p>Nie zawsze mamy dostęp do takiego sygnału, co więcej - czasami chcemy sami wygenerowac sygnały o konkretnym kształcie, charakterystycznych zniekształceniach, aby przetestowac pewne algorytmy.</p>
+<p>Możemy to zrobic z wykorzystaniem generatora:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> synthetic_ppg_generator(frequency<span class="op">=</span><span class="dv">100</span>):</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Generator syntetycznego sygnału PPG.</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">    frequency: częstotliwość próbkowania sygnału [Hz]</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> <span class="dv">0</span>  <span class="co"># czas [s]</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> frequency</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Modelujemy podstawowy kształt fali PPG przy użyciu równania</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        ppg_wave <span class="op">=</span> np.<span class="bu">abs</span>(np.sin(t)) <span class="op">+</span> <span class="fl">0.3</span> <span class="op">*</span> np.sin(<span class="dv">4</span> <span class="op">*</span> np.pi <span class="op">*</span> t) <span class="op">-</span> <span class="fl">0.15</span> <span class="op">*</span> np.sin(<span class="dv">6</span> <span class="op">*</span> np.pi <span class="op">*</span> t)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">yield</span> ppg_wave</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        t <span class="op">+=</span> dt</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Przykład użycia:</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>ppg_gen <span class="op">=</span> synthetic_ppg_generator(frequency<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Wygenerowanie 5s sygnału PPG (500 próbek, ponieważ frequency=100Hz)</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>ppg_signal <span class="op">=</span> [<span class="bu">next</span>(ppg_gen) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">500</span>)]</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Rysujemy sygnał</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>plt.plot(ppg_signal)</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Syntetyczny sygnał PPG"</span>)</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Próbka"</span>)</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Amplituda"</span>)</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab1_ppg.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Wygenerowany sygnał PPG</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="wybrane-biblioteki-numeryczne-pythona" class="level2">
+<h2 class="anchored" data-anchor-id="wybrane-biblioteki-numeryczne-pythona">Wybrane biblioteki numeryczne Pythona</h2>
+<section id="biblioteka-numpy" class="level3">
+<h3 class="anchored" data-anchor-id="biblioteka-numpy">Biblioteka Numpy</h3>
+<p><strong><code>NumPy</code></strong> to podstawowa biblioteka do obliczeń naukowych w Pythonie, która dostarcza wsparcie dla dużych, wielowymiarowych tablic i macierzy oraz wielu matematycznych funkcji do operacji na tych tablicach. Oto kilka najważniejszych cech biblioteki <strong><code>NumPy</code></strong> w kontekście metod numerycznych:</p>
+<ol type="1">
+<li><strong>Wektoryzacja</strong>:
+<ul>
+<li>Pozwala na wykonywanie operacji na całych tablicach bez potrzeby stosowania pętli.</li>
+<li>Operacje wektoryzowane są znacznie bardziej wydajne niż ich odpowiedniki bazujące na pętlach, dzięki zastosowaniu optymalizowanych funkcji niskiego poziomu napisanych w językach takich jak C i Fortran.</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład wektoryzacji
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Załóżmy, że chcemy dodać elementy dwóch dużych list do siebie. Możemy to zrobić na dwa sposoby:</p>
+<ol type="1">
+<li><strong>Tradycyjnie:</strong></li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>list2 <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> []</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(list1)):</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    result.append(list1[i] <span class="op">+</span> list2[i])</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Z wykorzystaniem biblioteki NumPy i wektoryzacji:</strong></li>
+</ol>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>array1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>array2 <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>])</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>result_array <span class="op">=</span> array1 <span class="op">+</span> array2</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Zobaczmy teraz, co robi NumPy:</p>
+<p>Gdy wykonujemy operację result_array = array1 + array2, NumPy wykonuje kilka kroków:</p>
+<ol type="1">
+<li><p><strong>Sprawdzanie wymiarów:</strong> Najpierw NumPy sprawdzi, czy obie tablice mają taki sam kształt (shape). Jeśli nie mają, zostanie zgłoszony błąd (chyba że możliwe jest “rozgłaszanie” (broadcasting), ale to bardziej zaawansowana funkcjonalność).</p></li>
+<li><p><strong>Alokacja pamięci:</strong> NumPy alokuje pamięć dla wynikowej tablicy, która będzie miała taki sam kształt jak array1 i array2.</p></li>
+<li><p><strong>Operacje element po elemencie:</strong> Następnie, dla każdego indeksu w tablicach, NumPy dodaje wartości z array1 i array2, a wynik zapisuje w odpowiednim miejscu w result_array.</p></li>
+</ol>
+<p>W rzeczywistości, proces jest bardziej skomplikowany i zoptymalizowany pod kątem wydajności. Dzięki wektoryzacji i natywnym, optymalizowanym funkcjom niskiego poziomu, operacje takie jak ta są wykonane bardzo szybko.</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li><strong>Efektywna organizacja pamięci</strong>:</li>
+</ol>
+<ul>
+<li>Tablice <code>NumPy</code> są jednorodne i przechowywane w ciągłych blokach pamięci. W przeciwieństwie do list w Pythonie, które są tablicami wskaźników, tablice <code>NumPy</code> zajmują mniej miejsca i umożliwiają szybszy dostęp do danych.</li>
+<li>Obsługuje też widoki (views), które pozwalają na dostęp do danych bez ich kopiowania, co jest szczególnie przydatne w dużych zbiorach danych.</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Paralelizacja</strong>:</li>
+</ol>
+<ul>
+<li>Chociaż sama <strong><code>NumPy</code></strong> nie obsługuje paralelizacji na poziomie wielu wątków, jej operacje są zoptymalizowane do wykorzystania jednostek SSE/AVX dostępnych w nowoczesnych procesorach, co przyspiesza wiele operacji.</li>
+<li>Dodatkowo, biblioteki takie jak <code>Dask</code> czy <code>Numba</code> pozwalają na łatwą paralelizację i kompilację operacji <strong><code>NumPy</code></strong> dla jeszcze większej wydajności.</li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Wsparcie dla operacji algebry liniowej, transformacji Fouriera i funkcji statystycznych</strong>:</li>
+</ol>
+<ul>
+<li>Dostarcza funkcje do rozwiązywania układów równań, obliczania wartości własnych, dekompozycji oraz innych kluczowych operacji algebry liniowej.</li>
+<li>Wbudowane funkcje do operacji na liczbach zespolonych oraz do wykonywania transformacji Fouriera.</li>
+</ul>
+<ol start="5" type="1">
+<li><strong>Wsparcie dla różnych typów danych</strong>:</li>
+</ol>
+<ul>
+<li>Obsługuje szeroki zakres typów danych, w tym typy liczbowe (całkowite, zmiennoprzecinkowe, zespolone) oraz typy dat i czasów.</li>
+</ul>
+<ol start="6" type="1">
+<li><strong>Interoperacyjność</strong>:</li>
+</ol>
+<ul>
+<li>Może współdziałać z bibliotekami napisanymi w innych językach, takimi jak C, C++ czy Fortran, co pozwala na wykorzystanie istniejących, optymalizowanych kodów.</li>
+<li>Łatwa integracja z innymi bibliotekami do analizy danych, takimi jak <code>pandas</code> czy <code>SciPy</code>.</li>
+</ul>
+<ol start="7" type="1">
+<li><strong>Rozszerzalność</strong>:</li>
+</ol>
+<ul>
+<li>Możliwość tworzenia własnych typów danych i funkcji <code>ufunc</code>, które zachowują się jak wbudowane operacje wektoryzowane.</li>
+</ul>
+<p>W kontekście metod numerycznych, <code>NumPy</code> dostarcza solidne narzędzie do szybkiego i wydajnego przetwarzania danych oraz implementacji algorytmów numerycznych w Pythonie.</p>
+</section>
+<section id="biblioteka-scipy" class="level3">
+<h3 class="anchored" data-anchor-id="biblioteka-scipy">Biblioteka Scipy</h3>
+<p>Drugą z wykorzystywanych przez nas bibliotek jest biblioteka SciPy - rozbudowana biblioteka służąca do obliczeń naukowych i inżynierskich w języku Python. Biblioteka ta bazuje na NumPy, ale dodaje sporo rzeczy “od siebie”. Przejdźmy przez jej najważniejsze moduły:</p>
+<ol type="1">
+<li><p>Moduł do optymalizacji (<code>scipy.optimize</code>): Narzędzia do znajdowania korzeni równań i minimalizacji funkcji.</p></li>
+<li><p>Moduł do algebry liniowej (<code>scipy.linalg</code>): Funkcje do rozwiązywania równań liniowych, obliczania wartości własnych itp.</p></li>
+<li><p>Moduł do przetwarzania sygnałów (<code>scipy.signal</code>): Narzędzia do analizy, projektowania i przetwarzania sygnałów.</p></li>
+<li><p>Moduł do analizy obrazów (<code>scipy.ndimage</code>): Funkcje do przetwarzania i analizy obrazów.</p></li>
+<li><p>Moduł do statystyki (<code>scipy.stats</code>): Obszerna kolekcja funkcji do statystyki i rozkładów prawdopodobieństwa.</p></li>
+<li><p>Moduł do całkowania (<code>scipy.integrate</code>): Narzędzia do całkowania funkcji i równań różniczkowych.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład obliczeń z wykorzystaniem SciPy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Załóżmy, że chcemy znaleźc minimum jakiejś funkcji. Zobaczmy jak możemy to zrobic z wykorzystaniem biblioteki SciPy:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiujemy funkcję</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">6</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Znajdujemy minimum funkcji zaczynając od punktu x=0</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(f, x0<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Wypisujemy wynik</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Minimum value of f(x) is </span><span class="sc">{</span>result<span class="sc">.</span>fun<span class="sc">}</span><span class="ss"> at x = </span><span class="sc">{</span>result<span class="sc">.</span>x<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Przeanalizujmy jeszcze jeden, bardzo ważny przykład, który łączy w sobie wykorzystanie biblioteki SciPy oraz pewne specyficzne cechy wykonywania obliczeń numerycznych.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład rozwiązywania układu równań
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>W szpitalu są dwie grupy pacjentów: osoby z grypą i osoby z zatruciem pokarmowym. Pierwszego dnia przyszło 5 pacjentów z grypą i 3 z zatruciem pokarmowym. Wszyscy razem otrzymali 23 tabletki paracetamolu. Drugiego dnia przyszło 2 osoby z grypą i 3 z zatruciem pokarmowym, a łączna liczba tabletek paracetamolu, które dostali, wynosiła 13. Jaką dawkę paracetamolu otrzymuje pacjent z grypą oraz pacjent z zatruciem pokarmowym?</p>
+<p>Załóżmy, że:</p>
+<ul>
+<li>Dawka dla pacjenta z grypą to <span class="math inline">\(x\)</span> tabletek.</li>
+<li>Dawka dla pacjenta z zatruciem to <span class="math inline">\(y\)</span> tabletek.</li>
+</ul>
+<p>Na podstawie powyższych informacji uzyskujemy układ równań:</p>
+<p><span class="math inline">\(5x+3y=23\)</span> (pierwszy dzień)<br>
+<span class="math inline">\(2x+3y=13\)</span> (drugi dzień)</p>
+<p>Rozwiążmy zatem ten układ równań, korzystając z biblioteki SciPy:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.linalg <span class="im">import</span> solve</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Macierz współczynników</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">5</span>, <span class="dv">3</span>], [<span class="dv">2</span>, <span class="dv">3</span>]])</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Wektor wyników</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">23</span>, <span class="dv">13</span>])</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Rozwiązujemy układ równań</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> solve(A, b)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dawka dla pacjenta z grypą: </span><span class="sc">{</span>x<span class="sc">:.2f}</span><span class="ss"> tabletki"</span>)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dawka dla pacjenta z zatruciem pokarmowym: </span><span class="sc">{</span>y<span class="sc">:.2f}</span><span class="ss"> tabletki"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="biblioteka-matplotlib" class="level3">
+<h3 class="anchored" data-anchor-id="biblioteka-matplotlib">Biblioteka MatPlotLib</h3>
+<p><strong>Biblioteka <code>matplotlib</code></strong> to jedno z najpopularniejszych narzędzi do tworzenia wizualizacji danych w Pythonie. Dzięki niej można tworzyć różnorodne wykresy, od podstawowych liniowych czy słupkowych, po bardziej zaawansowane jak histogramy, wykresy punktowe czy konturowe.</p>
+<p><strong>Najważniejsze cechy biblioteki <code>matplotlib</code>:</strong></p>
+<ol type="1">
+<li><strong>Wszechstronność</strong>: Możliwość tworzenia wielu typów wykresów.</li>
+<li><strong>Dostosowywalność</strong>: Wielkie możliwości konfiguracji wyglądu wykresów.</li>
+<li><strong>Interaktywność</strong>: Możliwość tworzenia interaktywnych wizualizacji.</li>
+<li><strong>Integracja z innymi bibliotekami</strong>: <code>matplotlib</code> integruje się z wieloma innymi bibliotekami Pythona takimi jak <code>pandas</code> czy <code>numpy</code>.</li>
+<li><strong>Podmoduł <code>pyplot</code></strong>: Zapewnia interfejs podobny do MATLAB-a, co jest przydatne dla osób znających to środowisko.</li>
+<li><strong>Wsparcie dla różnych formatów</strong>: Możliwość zapisu w wielu popularnych formatach graficznych jak PNG, PDF, SVG i innych.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prosty przykład:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Stworzymy wykres przedstawiający funkcje sinus i cosinus na tym samym rysunku z dodatkową konfiguracją:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Dane</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span> np.pi, <span class="dv">400</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.sin(x)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.cos(x)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzenie wykresu</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))  <span class="co"># ustawienie rozmiaru wykresu</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y1, label<span class="op">=</span><span class="st">'sin(x)'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)  <span class="co"># wykres funkcji sinus</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y2, label<span class="op">=</span><span class="st">'cos(x)'</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)  <span class="co"># wykres funkcji cosinus</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodanie tytułu i etykiet osi</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Funkcje sinus i cosinus'</span>)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodanie siatki i legendy</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, which<span class="op">=</span><span class="st">'both'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Wyświetlenie wykresu</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()  <span class="co"># automatyczne dopasowanie elementów wykresu</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ten kod utworzy wykres funkcji sinus i cosinus.</p>
+</div>
+</div>
+<p>Przeanalizujmy bardziej efektowny przykład:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Symulowany oscyloskop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Załóżmy, że chcemy przedstawic komuś koncepcję trzech sygnałów oscyloskopowych:</p>
+<ol type="1">
+<li>sygnał sinusoidalny</li>
+<li>sygnał prostokątny</li>
+<li>sygnał trójkątny</li>
+</ol>
+<p>Stworzymy wykres tych sygnałów wraz z opisem, skalą oraz powiększeniem fragmentu jednego z sygnałów.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> patches</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generowanie sygnałów</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">5</span> <span class="op">*</span> np.pi, <span class="dv">1000</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>sin_wave <span class="op">=</span> np.sin(t)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>square_wave <span class="op">=</span> np.sign(sin_wave)</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>triangle_wave <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.arcsin(sin_wave) <span class="op">/</span> np.pi</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzenie głównego wykresu</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">8</span>))</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>ax.plot(t, sin_wave, label<span class="op">=</span><span class="st">"Sinusoidalny"</span>, color<span class="op">=</span><span class="st">"blue"</span>)</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>ax.plot(t, square_wave, label<span class="op">=</span><span class="st">"Prostokątny"</span>, color<span class="op">=</span><span class="st">"red"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>ax.plot(t, triangle_wave, label<span class="op">=</span><span class="st">"Trójkątny"</span>, color<span class="op">=</span><span class="st">"green"</span>, linestyle<span class="op">=</span><span class="st">"-."</span>)</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Ustawienia wykresu</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Sygnały oscyloskopowe"</span>)</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Czas"</span>)</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Amplituda"</span>)</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Powiększenie fragmentu wykresu</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>axins <span class="op">=</span> ax.inset_axes([<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>])  <span class="co"># [x, y, width, height]</span></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>axins.plot(t, sin_wave, color<span class="op">=</span><span class="st">"blue"</span>)</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>axins.plot(t, square_wave, color<span class="op">=</span><span class="st">"red"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>axins.plot(t, triangle_wave, color<span class="op">=</span><span class="st">"green"</span>, linestyle<span class="op">=</span><span class="st">"-."</span>)</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>x1, x2, y1, y2 <span class="op">=</span> <span class="dv">7</span>, <span class="dv">8</span>, <span class="op">-</span><span class="fl">1.5</span>, <span class="fl">1.5</span>  <span class="co"># zakres fragmentu do powiększenia</span></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>axins.set_xlim(x1, x2)</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>axins.set_ylim(y1, y2)</span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>axins.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Zaznaczenie fragmentu do powiększenia na głównym wykresie</span></span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>rect <span class="op">=</span> patches.Rectangle((x1, y1), x2<span class="op">-</span>x1, y2<span class="op">-</span>y1, edgecolor<span class="op">=</span><span class="st">'gray'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>, linestyle<span class="op">=</span><span class="st">":"</span>)</span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>ax.add_patch(rect)</span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>ax.indicate_inset_zoom(axins, edgecolor<span class="op">=</span><span class="st">"gray"</span>)</span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ten kod generuje wykres trzech różnych sygnałów oscyloskopowych wraz z legendą, skalą i powiększeniem fragmentu wykresu, pokazującym interesujący obszar tych sygnałów. Zakres powiększenia został zaznaczony na głównym wykresie szarą linią przerywaną.</p>
+</div>
+</div>
+</section>
+<section id="biblioteka-pytorch" class="level3">
+<h3 class="anchored" data-anchor-id="biblioteka-pytorch">Biblioteka PyTorch</h3>
+<p>PyTorch to otwartoźródłowa biblioteka do uczenia maszynowego, stworzona głównie przez Facebook’s AI Research lab. PyTorch jest znany ze swojej elastyczności i dynamicznej kompilacji, co sprawia, że jest szczególnie użyteczny w badaniach. Umożliwia budowanie różnego rodzaju modeli głębokiego uczenia oraz oferuje wsparcie dla GPU, co przyspiesza obliczenia.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład wykorzystania biblioteki PyTorch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Przeanalizujmy przykład wykorzystania PyTorch do rozwiązania problemu matematycznego polegającego na znalezieniu minimum funkcji kwadratowej. W tym celu użyjemy koncepcji różniczkowania i spadku gradientu (dowiecie się o tym na kolejnych zajęciach z naszego przedmiotu, proszę chwilowo się nie martwic), ale bez wchodzenia głęboko w kontekst uczenia maszynowego.</p>
+<section id="problem" class="level3">
+<h3 class="anchored" data-anchor-id="problem">Problem:</h3>
+<p>Znajdź wartość <span class="math inline">\(x\)</span>, która minimalizuje funkcję <span class="math inline">\(f(x) = x^2 + 4x + 4\)</span>.</p>
+</section>
+<section id="rozwiązanie" class="level3">
+<h3 class="anchored" data-anchor-id="rozwiązanie">Rozwiązanie:</h3>
+<ol type="1">
+<li>Inicjalizuj zmienną <span class="math inline">\(x\)</span> z losową wartością.</li>
+<li>Oblicz wartość funkcji <span class="math inline">\(f\)</span> dla aktualnej wartości <span class="math inline">\(x\)</span>.</li>
+<li>Oblicz gradient funkcji względem <span class="math inline">\(x\)</span> (to informuje nas, w którym kierunku powinniśmy aktualizować <span class="math inline">\(x\)</span> w celu zminimalizowania <span class="math inline">\(f\)</span>).</li>
+<li>Aktualizuj <span class="math inline">\(x\)</span> w kierunku przeciwnym do gradientu.</li>
+<li>Powtarzaj kroki 2-4 przez pewną liczbę iteracji lub do osiągnięcia pewnego progu dokładności.</li>
+</ol>
+</section>
+<section id="kod" class="level3">
+<h3 class="anchored" data-anchor-id="kod">Kod:</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Krok 1: Inicjalizuj zmienną x z losową wartością i wymaganiem obliczania gradientu.</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.randn(<span class="dv">1</span>, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Definicja optymalizatora</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>learning_rate <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.SGD([x], lr<span class="op">=</span>learning_rate)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Iteracje optymalizacji</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Krok 2: Oblicz wartość funkcji f dla aktualnej wartości x.</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">4</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Krok 3: Oblicz gradient funkcji</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    f.backward()</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Krok 4: Aktualizuj x w kierunku przeciwnym do gradientu.</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    optimizer.step()</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zeruj gradienty dla następnej iteracji.</span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>    optimizer.zero_grad()</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Minimum funkcji f(x) = x^2 + 4x + 4 jest w punkcie x = </span><span class="sc">{</span>x<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>W tym przykładzie korzystamy z PyTorch do obliczenia gradientów i optymalizacji wartości <span class="math inline">\(x\)</span>, aby zminimalizować funkcję <span class="math inline">\(f\)</span>. Nie używamy tu żadnych zaawansowanych koncepcji uczenia maszynowego, ale skupiamy się na podstawach różniczkowania i optymalizacji.</p>
+<p>No dobra, ale dlaczego zatem nie używamy do tego po prostu biblioteki NumPy. Z kilku powodów, niestety niewidocznych gołym okiem na tak prostym przykładzie. Porównując podejście z wykorzystaniem NumPy, do podejścia z wykorzystaniem PyTorch-a, możemy określic pewne różnice (oraz co za tym idzie cechy biblioteki PyTorch)</p>
+<ol type="1">
+<li><strong>Automatyczne różniczkowanie</strong>:
+<ul>
+<li><strong>PyTorch</strong>: PyTorch oferuje automatyczne różniczkowanie dzięki <code>backward()</code>. Pozwala to na obliczenie gradientu funkcji bez konieczności ręcznego określania jego formy.</li>
+<li><strong>NumPy</strong>: W NumPy musiałbyś ręcznie wyznaczyć gradient funkcji, co dla naszej funkcji kwadratowej jest proste, ale dla bardziej skomplikowanych funkcji może być trudne.</li>
+</ul></li>
+<li><strong>Wsparcie dla GPU</strong>:
+<ul>
+<li><strong>PyTorch</strong>: PyTorch może przeprowadzać obliczenia zarówno na CPU, jak i GPU. Dzięki temu operacje mogą być przyspieszone dla dużych zbiorów danych lub skomplikowanych modeli.</li>
+<li><strong>NumPy</strong>: NumPy działa tylko na CPU. Istnieją biblioteki, takie jak CuPy, które oferują podobne do NumPy interfejsy na GPU, ale standardowy NumPy nie oferuje tej funkcjonalności.</li>
+</ul></li>
+<li><strong>Aktualizacja zmiennych</strong>:
+<ul>
+<li><strong>PyTorch</strong>: Optymalizatory w PyTorch (np. <code>torch.optim.SGD</code>) automatycznie aktualizują wartość zmiennych w odpowiedzi na obliczone gradienty.</li>
+<li><strong>NumPy</strong>: Musiałbyś ręcznie zaktualizować wartość zmiennej na podstawie gradientu, np. <code>x = x - learning_rate * gradient</code>.</li>
+</ul></li>
+<li><strong>Integracja z głębokim uczeniem</strong>:
+<ul>
+<li>Jeśli w przyszłości chciałbyś rozbudować rozwiązanie, np. dodać warstwy sieci neuronowej, PyTorch oferuje gotowe do użycia narzędzia i struktury, które ułatwiają to zadanie.</li>
+<li>W przypadku NumPy musiałbyś samodzielnie zaimplementować wiele elementów związanych z sieciami neuronowymi.</li>
+</ul></li>
+</ol>
+<p>Chociaż dla naszego prostego problemu różnice te mogą wydawać się niewielkie, dla bardziej skomplikowanych problemów i większych zbiorów danych zalety PyTorch stają się bardziej widoczne.</p>
+<p>Jeśli jednak chodzi o nasz konkretny problem z minimalizacją funkcji kwadratowej, można go łatwo rozwiązać przy użyciu NumPy, obliczając ręcznie gradient i aktualizując wartość <span class="math inline">\(x\)</span> w pętli. PyTorch jest tutaj używany bardziej jako demonstracja jego możliwości niż konieczność.</p>
+</section>
+</div>
+</div>
+</section>
+</section>
+<section id="typy-danych" class="level2">
+<h2 class="anchored" data-anchor-id="typy-danych">Typy danych</h2>
+<p>Kluczową strukturą danych w <code>numpy</code> jest <code>ndarray</code> (n-wymiarowa tablica danych), która pozwala na przechowywanie i operacje na dużych zbiorach danych w efektywny sposób.</p>
+<p>Każda tablica <code>ndarray</code> ma atrybut o nazwie <code>dtype</code>, który wskazuje typ danych przechowywanych w tablicy. <code>dtype</code> definiuje:</p>
+<ol type="1">
+<li><strong>Rodzaj danych</strong> (np. liczba całkowita, liczba zmiennoprzecinkowa, boolean, itp.).</li>
+<li><strong>Ilość pamięci</strong> potrzebną do przechowywania jednego elementu tego typu.</li>
+<li><strong>Zakres wartości</strong>, jakie można w niej przechowywać.</li>
+<li><strong>Precyzję</strong> (dla liczb zmiennoprzecinkowych).</li>
+</ol>
+<p>Przedstawmy kilka podstawowych typów danych w bibliotece <code>NumPy</code> :</p>
+<ul>
+<li><p><strong>Liczby całkowite</strong>: <code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code> (odpowiednio 8, 16, 32, 64 bity). Dla liczb bez znaku: <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code>.</p></li>
+<li><p><strong>Liczby zmiennoprzecinkowe</strong>: <code>float16</code>, <code>float32</code>, <code>float64</code>. Reprezentują liczby zmiennoprzecinkowe o różnej precyzji.</p></li>
+<li><p><strong>Liczby zespolone</strong>: <code>complex64</code>, <code>complex128</code>.</p></li>
+<li><p><strong>Boolean</strong>: <code>bool</code>.</p></li>
+<li><p><strong>Stringi i unicode</strong>: <code>string_</code>, <code>unicode_</code>.</p></li>
+</ul>
+<p>Użyte przez nas typy danych ma bezpośredni wpływ na ilość pamięci przydzielanej dla tablicy:</p>
+<ul>
+<li><p><strong>Rozmiar</strong>: Ilość pamięci potrzebna do przechowywania jednej tablicy jest równa ilości elementów w tablicy pomnożonej przez rozmiar jednego elementu (zdefiniowanego przez typ danych). Na przykład, tablica 1000 elementów typu <code>int8</code> będzie zajmować 1000 bajtów pamięci.</p></li>
+<li><p><strong>Operacje</strong>: Wybór odpowiedniego typu danych może wpłynąć na szybkość i dokładność operacji. Na przykład, operacje na typach z mniejszą precyzją (jak <code>float16</code>) mogą być szybsze, ale mniej dokładne.</p></li>
+<li><p><strong>Zakres</strong>: Mniejsze typy danych mają ograniczony zakres wartości, które mogą przechowywać. Na przykład, <code>int8</code> może przechowywać wartości od -128 do 127.</p></li>
+</ul>
+<p>Dlatego ważne jest, aby wybrać odpowiedni typ danych w zależności od potrzeb. Jeśli potrzebujesz zaoszczędzić pamięć i operacje nie wymagają dużej precyzji, możesz wybrać mniejszy typ danych. Jeśli jednak dokładność jest kluczowa, lepiej jest użyć większego, mimo większego zużycia pamięci.</p>
+</section>
+<section id="błędy-numeryczne-i-ich-propagacja" class="level2">
+<h2 class="anchored" data-anchor-id="błędy-numeryczne-i-ich-propagacja">Błędy numeryczne i ich propagacja</h2>
+<p>Rozpocznijmy od dwóch definicji:</p>
+<ul>
+<li><p><strong>Sygnał Analogowy:</strong> - Sygnał w postaci wielkości fizycznej zmieniającej się w sposób ciągły, a nie skokowo. Jego wartości mogą zostać określone w każdej chwili.</p></li>
+<li><p><strong>Sygnał Cyfrowy:</strong> - Przeciwieństwem sygnału analogowego jest sygnał skwantowany, nazywany również dyskretnym. Kwantyzacja to działanie, które sygnał analogowy (liczbę rzeczywistą, o nieskończonym liczbie wartości w danym przedziale) przekształca w ograniczony zbiór liczb całkowitych, dzięki czemu możliwa jest dalsza obróbka tego sygnału przy pomocy komputera</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład kwantyzacji
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Przykładem niech będzie sygnał EKG na obrazku poniżej</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab1_probkowanie.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">EKG</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Konwersja sygnału analogowego do cyfrowego zachodzi zawsze z pewną <strong>ograniczoną dokładnością</strong>. Dokładność ta wynika ze skończonej precyzji reprezentacji liczb w systemach cyfrowych. Nazywamy to błędem <strong>kwantyzacji</strong>. Wiąże się to bezpośrednio z typami danych. Drugim typem błędu, który nas interesuje to błąd <strong>maszynowy</strong>.</p>
+<p><strong>Błąd kwantyzacji:</strong> Pojawia się, gdy sygnał ciągły lub sygnał o dużej rozdzielczości jest przetwarzany do ograniczonej liczby dyskretnych poziomów. Na przykład, gdy analogowy sygnał dźwiękowy jest digitalizowany, jego wartości amplitudy są zaokrąglane do najbliższego poziomu kwantyzacji. Błąd kwantyzacji odnosi się do różnicy między rzeczywistą wartością sygnału a jego kwantyzowaną wartością.</p>
+<p><strong>Błąd maszynowy:</strong> Jest to najmniejsza wartość, która może być reprezentowana w danym systemie numerycznym. Dla standardu liczby zmiennoprzecinkowej IEEE 754 (często używany w komputerach), błąd maszynowy określa minimalną różnicę między “1” a następną wartością, która może być reprezentowana. Błąd maszynowy jest ograniczeniem maszynowym i jest bezpośrednio związany z precyzją, z jaką liczby są reprezentowane w komputerze.</p>
+<ul>
+<li>Oba typy błędów wynikają z ograniczeń w reprezentowaniu liczb.</li>
+<li>W kontekście przetwarzania sygnałów, błąd kwantyzacji często jest bardziej widoczny, ponieważ wpływa bezpośrednio na jakość rekonstrukcji sygnału. Jednak w obliczeniach numerycznych, błąd maszynowy może kumulować się w wielu operacjach i wpływać na dokładność wyników.</li>
+<li>W praktycznych zastosowaniach DSP (cyfrowe przetwarzanie sygnałów), błąd kwantyzacji jest często większym problemem niż błąd maszynowy, chyba że algorytm wymaga dużej precyzji w obliczeniach matematycznych.</li>
+</ul>
+<p>Błąd maszynowy, zwany także epsilonem maszynowym możemy w praktyce wyznaczyc korzystając z definicji, że jest to taka liczba, że:</p>
+<p><span id="eq-xyp"><span class="math display">\[1 + \epsilon \neq 1 \tag{1}\]</span></span></p>
+<p>w arytmetyce zmiennoprzecinkowej komputera. Dla typu <code>float64</code> w bibliotece NumPy (co jest standardowym formatem liczby zmiennoprzecinkowej o podwójnej precyzji), epsilon maszynowy wynosi około <span class="math inline">\(2.220446049250313 \cdot e^−16\)</span>.</p>
+</section>
+<section id="zadania" class="level2">
+<h2 class="anchored" data-anchor-id="zadania">Zadania</h2>
+<section id="zadanie-1" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-1">Zadanie 1</h4>
+<p>Pacjenci w szpitalu otrzymują różne dawki leku w zależności od ich wagi. Stwórz funkcję, która przyjmuje listę wag pacjentów i zwraca listę z odpowiednimi dawkami leku. Dawka leku jest obliczana według następującej zasady:</p>
+<ul>
+<li>Dla pacjentów o wadze poniżej 50 kg: 20 mg leku.</li>
+<li>Dla pacjentów o wadze od 50 kg do 100 kg: 50 mg leku.</li>
+<li>Dla pacjentów o wadze powyżej 100 kg: 100 mg leku.</li>
+</ul>
+<p>Sygnatura funkcji:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> oblicz_dawki(wagi: np.ndarray) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span> <span class="co"># tutaj bedzie implementacja</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Przykładowe działanie:</p>
+<p>Dla tablicy wag: <code>np.array([45, 75, 105])</code>, funkcja powinna zwrócić: <code>np.array([20, 50, 100])</code>.</p>
+<p>Przetestuj działanie funkcji na różnych zbiorach danych.</p>
+</section>
+<section id="zadanie-2" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-2">Zadanie 2</h4>
+<p>W szpitalu prowadzone są badania dotyczące wpływu leku na ciśnienie krwi pacjentów. Dla listy pacjentów, która zawiera zapisane ciśnienie krwi przed i po podaniu leku, oblicz procent pacjentów, u których ciśnienie spadło po podaniu leku.</p>
+<p>Masz daną następującą listę ciśnień krwi:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>cisnienia <span class="op">=</span> [</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">120</span>, <span class="dv">115</span>),</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">140</span>, <span class="dv">138</span>),</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">130</span>, <span class="dv">125</span>),</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">150</span>, <span class="dv">155</span>),</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">110</span>, <span class="dv">108</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Każda krotka zawiera dwie wartości: pierwsza to ciśnienie przed podaniem leku, a druga po podaniu leku.</p>
+<p>Używając pętli, oblicz procent pacjentów z obniżonym ciśnieniem.</p>
+</section>
+<section id="zadanie-3" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-3">Zadanie 3</h4>
+<p>W dziedzinie medycyny obrazowej często stosuje się przekształcenia obrazów. Jednym z najprostszych z nich jest progowanie (thresholding). Polega ono na porównywaniu wartości danego piksela z wartością progową i wpisywanie do niego wartości 255 jeśli jest większy od wartości progowej lub 0 jeśli jest mniejszy.</p>
+<p>Twoim zadaniem jest napisanie funkcji <code>thresholding</code>, która przyjmuje dwuwymiarową macierz (obraz) oraz wartość progową <code>T</code> i zwraca nową macierz po operacji thresholdingu.</p>
+<p>Każdy element tej macierzy reprezentuje piksel obrazu o wartościach od 0 (czarny) do 255 (biały). Piksele poniżej wartości <code>T</code> powinny być przekształcone na 0, podczas gdy piksele powyżej <code>T</code> powinny być przekształcone na 255.</p>
+<p><strong>Sygnatura funkcji:</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> thresholding(obraz: np.ndarray, T: <span class="bu">int</span>) <span class="op">-&gt;</span> np.ndarray:</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span> <span class="co">#tutaj znajdzie sie implementacja Waszej funkcji</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Przykładowa macierz:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>obraz <span class="op">=</span> [</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">140</span>],</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">150</span>, <span class="dv">160</span>, <span class="dv">170</span>],</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">180</span>, <span class="dv">190</span>, <span class="dv">200</span>]</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Jeśli wartość progowa <code>T</code> wynosi 150, przekształcony obraz będzie wyglądać następująco:</p>
+<pre><code>[
+    [0, 0, 0],
+    [255, 255, 255],
+    [255, 255, 255]
+]</code></pre>
+</section>
+<section id="zadanie-4" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-4">Zadanie 4</h4>
+<p>Dane z EEG (elektroencefalografia) pacjenta są zapisane w postaci tablicy <code>numpy</code> reprezentującej napięcie zarejestrowane w kolejnych punktach czasowych. Chcielibyśmy analizować te dane w segmentach o określonej długości czasu (tzw. okna czasowe). Napisz generator, który będzie zwracać fragmenty tej tablicy.</p>
+<p>Argumenty funkcji: 1. Tablica <code>numpy</code> o nazwie <code>eeg_data</code>, reprezentująca dane EEG. 2. Liczba próbek na segment, <code>segment_length</code>.</p>
+<p>Generator ma zwracać kolejne segmenty danych o długości <code>segment_length</code>. Jeśli w tablicy pozostanie mniej niż <code>segment_length</code> próbek, zwróć te pozostałe próbki.</p>
+<p><strong>Sygnatura funkcji:</strong></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generator_segmentow_eeg(eeg_data: np.ndarray, segment_length: <span class="bu">int</span>):</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Przykład:</strong> Załóżmy, że mamy dane EEG w tablicy: <code>np.array([0.5, 0.6, 0.7, 0.55, 0.65, 0.7, 0.8, 0.85])</code> i chcemy analizować segmenty o długości 3 próbek. - Pierwsze wywołanie <code>next()</code> zwróci <code>np.array([0.5, 0.6, 0.7])</code>. - Drugie wywołanie <code>next()</code> zwróci <code>np.array([0.55, 0.65, 0.7])</code>. - Trzecie wywołanie <code>next()</code> zwróci <code>np.array([0.8, 0.85])</code>. - Kolejne wywołanie <code>next()</code> spowoduje podniesienie wyjątku <code>StopIteration</code>.</p>
+<p><strong>Zadanie dodatkowe:</strong> Używając biblioteki NumPy wygeneruj tablicę 10.000 próbek sygnału EEG, dla uproszczenia przyjmijmy że będą to wartości losowe z przedziału 0-1, w typie danych <code>float16</code>. Przetestuj działanie swojego generatora dla różnych długości okna czasowego.</p>
+</section>
+<section id="zadanie-5" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-5">Zadanie 5</h4>
+<p><strong>Zadanie: Kalkulator z <code>*args</code> i <code>**kwargs</code></strong></p>
+<p>Celem zadania jest stwotzenie uniwersalnego kalkulatora zdolnego do wykonania różnych operacji matematycznych na dowolnej liczbie argumentów z wykorzystaniem <code>*args</code> i <code>**kwargs</code>.</p>
+<p><strong>Instrukcje:</strong></p>
+<ol type="1">
+<li>Zaimplementuj funkcję o nazwie <code>universal_calculator</code>.</li>
+<li>Funkcja powinna przyjmować argumenty pozycyjne (<code>*args</code>) reprezentujące wartości liczbowe, na których chcemy wykonać operacje.</li>
+<li>Funkcja powinna również akceptować argumenty nazwane (<code>**kwargs</code>) do kontrolowania operacji:
+<ul>
+<li><code>operation</code>: określa typ operacji (możliwości: <code>"add"</code>, <code>"substract"</code>, <code>"multiply"</code>, <code>"divide"</code>). Domyślnie powinna być to operacja dodawania.</li>
+<li><code>power</code>: podniesienie wyniku do podanej potęgi.</li>
+<li><strong>(Dla chętnych, opcjonalnie)</strong> <code>show_steps</code>: jeśli ustawiono na <code>True</code>, funkcja powinna dodatkowo drukować kroki obliczeń.</li>
+</ul></li>
+<li>Funkcja powinna zwracać końcowy wynik operacji.</li>
+</ol>
+<p><strong>Przykład użycia:</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(universal_calculator(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))  <span class="co"># Domyślnie dodaje: 10</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(universal_calculator(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, operation<span class="op">=</span><span class="st">"multiply"</span>))  <span class="co"># Mnoży: 6</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(universal_calculator(<span class="dv">10</span>, <span class="dv">2</span>, operation<span class="op">=</span><span class="st">"divide"</span>, power<span class="op">=</span><span class="dv">2</span>))  <span class="co"># Dzieli, a następnie podnosi wynik do kwadratu: 25.0</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(universal_calculator(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, operation<span class="op">=</span><span class="st">"add"</span>, show_steps<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Drukowanie kroków:</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 + 2 = 3</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 + 3 = 6</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Wynik: 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Wskazówki:</strong> - Wykorzystaj pętlę <code>for</code> do iteracji przez <code>args</code> podczas wykonywania operacji. - Użyj instrukcji warunkowych do wyboru odpowiedniej operacji matematycznej. - Upewnij się, że kalkulator obsługuje potencjalne błędy, takie jak dzielenie przez zero.</p>
+</section>
+<section id="zadanie-6" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-6">Zadanie 6</h4>
+<p>Korzystając z definicji epsilonu maszynowego napisz funkcję w języku Python, która oblicza epsilon maszynowy danego typu danych w bibliotece NumPy. Pamiętaj o deklaracji typu danych w obliczeniach. Zalecane jest skorzystanie z pętli.</p>
+</section>
+<section id="zadanie-7" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-7">Zadanie 7</h4>
+<p>Poniżej przedstawiony jest kod, który mierzy czas wykonania pewnej operacji. Wykonaj analogiczne działanie z wykorzystaniem biblioteki NumPy, zmierz czas konieczny do jego wykonania, porównaj ten czas z czasem wykonania tradycyjnej metody.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzymy listę wartości od 0 do 10^6</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [i <span class="op">*</span> <span class="fl">0.001</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000000</span>)]</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>sin_values <span class="op">=</span> []</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> val <span class="kw">in</span> values:</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    sin_values.append(math.sin(val))</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Traditional loop took </span><span class="sc">{</span>end_time <span class="op">-</span> start_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="zadanie-8---kalkulator-oszczędnościowy" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-8---kalkulator-oszczędnościowy">Zadanie 8 - Kalkulator Oszczędnościowy</h4>
+<p>Twoim zadaniem jest stworzenie prostego kalkulatora oszczędnościowego, który pomoże użytkownikowi przewidzieć, ile pieniędzy uda mu się zaoszczędzić w ciągu określonego czasu.</p>
+<p><strong>Wymagania:</strong></p>
+<ol type="1">
+<li>Użytkownik powinien mieć możliwość podania początkowej kwoty oszczędności (może to być 0).</li>
+<li>Użytkownik powinien podać miesięczną kwotę, którą planuje oszczędzać.</li>
+<li>Użytkownik powinien podać roczne oprocentowanie swojego konta oszczędnościowego (np. 3% oznaczać będzie 0.03).</li>
+<li>Użytkownik powinien podać liczbę lat, przez które planuje oszczędzać.</li>
+</ol>
+<p><strong>Twoim zadaniem jest:</strong></p>
+<ol type="1">
+<li>Obliczenie końcowej sumy oszczędności po określonym czasie, uwzględniając oprocentowanie.</li>
+<li>Wykorzystanie odpowiednich typów danych w Pythonie do reprezentowania tych wartości (np. float dla kwot i oprocentowania, int dla liczby lat).</li>
+</ol>
+<p><strong>Formuła oszczędności z oprocentowaniem składanym miesięcznie:</strong></p>
+<p><span class="math display">\[A = P \left(1 + \frac{r}{n}\right)^{nt} + PMT \left[ \frac{\left(1 + \frac{r}{n}\right)^{nt} - 1}{\frac{r}{n}} \right]\]</span></p>
+<p>Gdzie:</p>
+<ul>
+<li>A to końcowa suma oszczędności.</li>
+<li>P to początkowa suma oszczędności.</li>
+<li>r to roczna stopa procentowa (jako ułamek, np. 3% to 0.03).</li>
+<li>n to liczba okresów kapitalizacji w ciągu roku (dla kapitalizacji miesięcznej n=12n=12).</li>
+<li>t to liczba lat oszczędzania.</li>
+<li>PMT to stała miesięczna wpłata.</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Na początek</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../labs/lab2.html" class="pagination-link">
+        <span class="nav-page-text">Laboratorium 2</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© CC-By Mateusz Danioł, 2022</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -1,0 +1,373 @@
+# Laboratorium 3
+
+## Zakres Tematyczny
+
+1. Całkowanie numeryczne
+2. Podstawowe algorytmy całkowania numerycznego
+3. Analiza błędu całkowania
+4. Całkowanie numeryczne, a analityczne
+5. Przykłady praktyczne
+6. Zadania do samodzielnego rozwiązania 
+
+## Całkowanie numeryczne
+
+Całkowanie numeryczne jest techniką matematyczną służącą do przybliżonego wyznaczania wartości całek oznaczonych. W wielu przypadkach funkcje, które chcemy całkować, mogą być zbyt skomplikowane, aby znaleźć ich analityczne rozwiązania, lub mogą być dostępne tylko w postaci dyskretnych zestawów danych. W takich sytuacjach techniki całkowania numerycznego stają się niezbędne.
+
+### Metoda Prostokątów
+
+Metoda prostokątów to jedna z najprostszych technik całkowania numerycznego. Jej idea polega na podziale obszaru pod krzywą funkcji na wiele małych prostokątów i następnie zsumowaniu pól tych prostokątów, aby uzyskać przybliżone pole pod krzywą.
+
+W metodzie punktu środkowego wartość funkcji w środkowym punkcie każdego prostokąta jest używana do określenia wysokości tego prostokąta.
+
+##### Procedura:
+
+1. Zakładamy, że chcemy obliczyć całkę funkcji $f(x)$ w przedziale $[a, b]$.
+2. Dzielimy przedział $[a, b]$ na $n$ równych podprzedziałów o długości $\Delta x$, gdzie:
+   $$\Delta x = \frac{b - a}{n}$$
+3. Wartość funkcji w punkcie środkowym $x_i^*$ każdego podprzedziału jest używana do obliczenia wysokości prostokąta. Gdzie $x_i^* = a + \left(i - \frac{1}{2}\right) \Delta x$ dla $i = 1, 2, \dots, n$.
+4. Pole każdego prostokąta jest dane przez $f(x_i^*) \Delta x$.
+5. Całkowite przybliżone pole pod krzywą to suma pól wszystkich prostokątów:
+   $$A \approx \sum_{i=1}^{n} f(x_i^*) \Delta x$$
+
+##### Wzór:
+
+$$\int_a^b f(x) \, dx \approx \sum_{i=1}^{n} f\left(a + \left(i - \frac{1}{2}\right) \Delta x\right) \Delta x$$
+
+Uproszczone przybliżenie wartości całki funkcji $f(x)$ na przedziale $[a, b]$, zakładając że bierzemy punkt w lewym górnym rogu prostokątu a nie w środku, gdzie dzielimy przedział na $n$ równych części o szerokości $\Delta x$:
+$\Delta x = \frac{b - a}{n}$
+
+Przybliżenie regułą prostokątów jest:
+$$\int_a^b f(x) dx \approx \sum_{i=0}^{n-1} f(a + i\Delta x) \Delta x$$
+
+W tym przypadku przyjmujemy wartość funkcji na lewym krańcu każdego podprzedziału (czyli lewych prostokątów) i mnożymy przez szerokość $e\Delta x$ dla każdego prostokąta.
+
+Metoda prostokątów jest stosunkowo prosta w implementacji i może być użyteczna w przypadkach, gdy funkcja jest stosunkowo gładka lub gdy dysponujemy dużą liczbą punktów do całkowania. Jednakże może nie być tak dokładna jak bardziej zaawansowane metody, takie jak metoda trapezów czy metoda Simpsona, zwłaszcza dla funkcji o skomplikowanym kształcie.
+
+### Metoda Trapezów
+
+Metoda trapezów to pierwsza z metod Newtona-Cotesa. Formuły Newtona-Cotesa są najpopularniejszymi schematami całkowania numerycznego. Opierają się one na strategii zastąpienia skomplikowanej funkcji lub danych tabelarycznych funkcją aproksymującą, która jest łatwa do całkowania:
+
+$$I = \int_a^bf(x)dx \approxeq \int_a^bf_n(x)dx$$
+
+gdzie $f_n(x)$ jest wielomianem przyjmującym postać:
+
+$$f_n(x) = a_0 + a_1x + ... + a_{n-1}x^{n-1}+a_nx^n$$
+
+a $n$ jest rzędem wielomianu. \
+\
+**Metoda trapezów** to najprostsza zamknięta formuła Newtona-Cotesa, w której funkcja jest przybliżana linią prostą (wielomianem pierwszego stopnia) na każdym podprzedziale.
+
+$$I \approxeq h\frac{f(x_0) + f(x_1)}{2} + h\frac{f(x_1) + f(x_2)}{2} + h\frac{f(x_{n-1}) + f(x_n)}{2}$$
+
+Czyli uogólniając:
+$$I \approxeq \frac{h}{2} [f(x_0) + 2\sum_{i=1}^{n-1}f(x_i) + f(x_n)]$$
+
+![](images/lab3_trapz.png)
+
+::: {.callout-note collapse="true"}
+## Kod użyty do wygenerowania tego rysunku
+
+```python
+# Definiujemy funkcję
+def f(x):
+    return np.sin(x) + (1/3)*np.sin(3*x)
+
+# Zakres całkowania od 0 do pi
+a, b = 0, 1*np.pi
+
+# Liczba trapezów
+n = 5
+
+# Definiujemy szerokość trapezu
+dx = (b - a) / n
+
+# Punkty x do obliczeń i wizualizacji
+x = np.linspace(a, b, n+1)
+y = f(x)
+
+# Kolory z palety Material Design (ładnie wyglądają)
+fill_color = '#BBDEFB'  # light blue
+edge_color = '#1A237E'  # dark blue
+line_color = '#1976D2'  # blue
+
+# Rysujemy funkcję
+x_dense = np.linspace(a, b, 400)
+plt.plot(x_dense, f(x_dense), color=line_color, label='f(x)')
+
+# Rysujemy trapezy oraz ich obrysy
+for i in range(n):
+    plt.fill_between([x[i], x[i+1]], [y[i], y[i+1]], color=fill_color, edgecolor=edge_color)
+    plt.plot([x[i], x[i]], [0, y[i]], color=edge_color)  # obrysy wertykalne
+    
+    # Dodajemy podpisy dla kolejnych kroków
+    mid_point = (x[i] + x[i+1]) / 2
+    plt.text(mid_point, 0.2, f'h{i+1}', ha='center', fontsize=10)
+plt.plot([x[-1], x[-1]], [0, y[-1]], color=edge_color)  # ostatni obrys wertykalny
+
+plt.text(a + 0.2, -0.4, f'h = {dx:.4f}', fontsize=12)
+
+plt.legend()
+plt.grid(True)
+plt.ylim([-0.5, 2])
+plt.show()
+```
+:::
+
+
+Pseudokod dla metody trapezów:
+
+```pseudocode
+Function TrapezoidalRuleDiscrete(y, n):
+   h = (b - a) / (n - 1)
+   integral = 0.5 * (y[0] + y[n-1])
+
+   For i from 1 to n-2:
+      integral = integral + y[i]
+
+   integral = integral * h
+   Return integral
+```
+
+::: {.callout-caution}
+## Eksperyment 1
+Przeprowadź eksperyment i spróbuj obliczyć całki dla różnych funkcji numerycznych metodą trapezów z różną długością kroku. Funkcje możesz wygenerować przy pomocy następującego kodu:
+
+```python
+start = -np.pi
+end = np.pi 
+step = 0.000001
+samples = int((end - start) / step)
+
+x = np.linspace(start, end, samples)
+f = np.cos(x) + x**2
+```
+
+Przeprowadź analizę błędu całkowania. \
+Co dzieje się z błędem wraz ze zmianą długości kroku. \
+W jaki sposób się zmienia? \
+Porównaj to z wartością całki obliczoną analitycznie. \
+Porównaj czas wykonywania całkowania dla sygnałów o różnej długości i dla różnych typów danych.
+:::
+
+
+### Metoda Simpsona
+
+Drugą z omawianych metod całkowania numerycznego jest metoda Simpsona. Polega ona na użyciu wielomianu drugiego stopnia do przybliżenia funkcji w danym przedziale.
+
+$$I = \int_a^bf(x)dx \approxeq \int_a^bf_s(x)dx$$
+
+Pole powierzhni pod wykresem funkcji $f_s$ reprezentującej przybliżenie funkcji $\int_a^b(fx)dx$ jest dane wzorem
+
+$$I \approxeq \frac{h}{3} [f_s(x_0) + 4\sum_{i = 1,3,5...}^{n-1}{f_s(x_i)} + 2\sum_{j = 2,4,6...}^{n-2}f_s(x_j) + f_s(x_n)$$
+
+Wzór ten można wyprowadzić z przybliżenia Lagrange's wielomianu stopnia drugiego (wykład).
+
+Błąd w metodzie Simpsona 1/3 względem 
+
+:::{.callout-warning}
+## Ograniczenia metody Simpsona 1/3
+Metoda Simpsona 1/3 wymaga aby ilość przedziałów była parzysta. W sytuacji kiedy liczba przedziałów jest nieparzysta na pierwszych lub ostatnich trzech z nich możemy przeprowadzić całkowanie metodą **Simpsona 3/8**.
+:::
+
+![](images/lab3_simps_13.png)
+
+::: {.callout-note collapse="true"}
+### Kod użyty do wygenerowania tego rysunku
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the function
+def f(x):
+    return np.sin(x) + (1/3)*np.sin(3*x)
+
+# Range for integration
+a, b = 0, 2*np.pi
+
+# Number of intervals (must be even for Simpson's 1/3 rule)
+n = 10
+assert n % 2 == 0, "Number of intervals must be even for Simpson's 1/3 rule"
+
+# Width of an interval
+dx = (b - a) / n
+
+# Points x for calculation and visualization
+x = np.linspace(a, b, n+1)
+y = f(x)
+
+# Compute the approximation using Simpson's 1/3 rule
+integral_approx = dx/3 * (y[0] + y[-1] + 4*np.sum(y[1:-1:2]) + 2*np.sum(y[2:-2:2]))
+
+# Colors from Material Design palette
+fill_color = '#BBDEFB'
+edge_color = '#1A237E'
+line_color = '#1976D2'
+point_color = '#D32F2F'  # red color for points
+
+# Plot the function
+x_dense = np.linspace(a, b, 400)
+plt.plot(x_dense, f(x_dense), color=line_color, label='f(x)')
+
+# Draw parabolic sections and mark the points
+for i in range(0, n, 2):
+    xx = np.linspace(x[i], x[i+2], 100)
+    yy = (
+        f(x[i])*(xx - x[i+1])*(xx - x[i+2])/((x[i] - x[i+1])*(x[i] - x[i+2]))
+        + f(x[i+1])*(xx - x[i])*(xx - x[i+2])/((x[i+1] - x[i])*(x[i+1] - x[i+2]))
+        + f(x[i+2])*(xx - x[i])*(xx - x[i+1])/((x[i+2] - x[i])*(x[i+2] - x[i+1]))
+    )
+    plt.fill_between(xx, yy, color=fill_color, edgecolor=edge_color)
+    
+    # Add steps annotations
+    plt.text((x[i] + x[i+2]) / 2, 1.4, f'step {i//2+1}', ha='center', fontsize=10)
+    
+    # Marking points: start, middle, and end
+    plt.scatter([x[i], x[i+1], x[i+2]], [y[i], y[i+1], y[i+2]], color=point_color, zorder=5)
+    
+    # Adjusted labels to avoid overlap
+    offset = 0.15
+    plt.text(x[i], y[i] - offset if y[i] > 0 else y[i] + offset, f'Start', ha='center', fontsize=8, va='center')
+    plt.text(x[i+1], y[i+1] - offset, f'Mid', ha='center', fontsize=8, va='center')
+    plt.text(x[i+2], y[i+2] + offset if y[i+2] > 0 else y[i+2] - offset, f'End', ha='center', fontsize=8, va='center')
+plt.text(a + 0.2, -0.3, f'h = {dx:.4f}', fontsize=12)
+
+plt.legend()
+plt.grid(True)
+plt.ylim([-1.5, 2])
+plt.show()
+
+```
+:::
+
+::: {.callout-caution}
+## Eksperyment 2
+Przeprowadź analogiczny eksperyment do eksperymentu 1 ale z wykorzystaniem metody Simpsona. Możesz skorzystać z funkcji dostępnej w pakiecie `scipy` o nazwie `scipy.integrate.simpson`
+:::
+
+### Metoda Simpsona 3/8
+
+W przypadku metody Simpsona 3/8 jej sposób działania jest podobny do metody Simpsona 1/3, jednak zamiast wielomianu stopnia drugiego, wykorzystamy wielomian stopnia trzeciego.
+
+$$I = \int_a^bf(x)dx \approxeq \int_a^bf_3(x)dx$$
+
+a to po odpowiednich przekształceniach wynikających z przybliżenia Lagrange'a wielomianu prowadzi do wzoru:
+
+$$I \approxeq \frac{3h}{8}[f(x_0) + 3f(x_1) + 3f(x_2) + f(x_3)]$$ 
+
+Regułę Simpsona 3/8 można stosować w połączeniu z metodą Simpsona 1/3 gdy mamy do czynienia z nieparzystą liczbą przedziałów. 
+
+### Suma Kumulacyjna
+
+Suma kumulacyjna, inaczej nazywana sumą skumulowaną lub kumulatą, to suma wartości danego zestawu danych w kolejnych punktach, zamiast pojedynczych wartości. Daje to ciąg liczb, w którym każda kolejna wartość to suma wszystkich poprzednich wartości w zestawie plus bieżąca wartość.
+
+$$y[i] = \sum_{k=1}^{i}k[i]$$
+$$x = [x_1, x_2, x_3, x_4...x_n]$$
+
+$$y = [x_1, x_1 + x_2, x_1+x_2+x_3...]$$
+
+
+Przykład:
+
+Załóżmy, że mamy następujący zestaw danych:
+
+$$A = \{ 1, 2, 3, 4 \}$$
+
+Suma kumulacyjna tego zestawu będzie wyglądała następująco:
+
+$$\{ 1, 1+2, 1+2+3, 1+2+3+4 \} = \{ 1, 3, 6, 10 \}$$
+
+Ostateczny ciąg sumy kumulacyjnej to {1, 3, 6, 10}.
+
+W wielu zastosowaniach, takich jak analiza finansowa, statystyka czy obróbka sygnałów, suma kumulacyjna jest używana do obliczenia sumy wartości w określonym zakresie lub do analizy wzrostu wartości w czasie.
+
+
+## Przykłady praktyczne
+
+Obszar pod zespołem QRS (często nazywany obszarem QRS) w elektrokardiogramie (EKG) może dostarczyć cennych informacji diagnostycznych na temat aktywności elektrycznej serca i stanu mięśnia sercowego.
+
+[QRS Area Is a Strong Determinant of Outcome in Cardiac Resynchronization Therapy](https://www.ahajournals.org/doi/10.1161/CIRCEP.118.006497)
+
+![](images/lab3_qrs.png)
+
+::: {.callout-tip collapse="true"}
+## Kod użyty do wygenerowania tego przykładu
+```python
+import neurokit2 as nk
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate a synthetic ECG signal (5 seconds)
+ecg_signal = nk.ecg_simulate(duration=5, sampling_rate=1000, heart_rate=70)
+
+# Detect R-peaks
+_, rpeaks = nk.ecg_peaks(ecg_signal, sampling_rate=1000)
+
+# Delineate the ECG signal to extract waves
+_, waves_peak = nk.ecg_delineate(ecg_signal, rpeaks, sampling_rate=1000, method="peak")
+
+# Plot the ECG signal
+plt.figure(figsize=(15, 5))
+plt.plot(ecg_signal, label='ECG Signal')
+
+qrs_areas = []
+
+# Get a colormap for varying QRS colors
+color_map = plt.cm.get_cmap('viridis', len(waves_peak['ECG_Q_Peaks']))
+
+# Highlight the QRS complex using the Q-peaks and S-peaks as boundaries
+for idx, (q_peak, s_peak) in enumerate(zip(waves_peak['ECG_Q_Peaks'], waves_peak['ECG_S_Peaks'])):
+    if not np.isnan(q_peak) and not np.isnan(s_peak):
+        
+        # Determine the local baseline as the mean value before Q and after S
+        local_baseline = np.mean([ecg_signal[int(q_peak) - 5:int(q_peak)], ecg_signal[int(s_peak):int(s_peak) + 5]])
+        
+        # Calculate the QRS area related to the local baseline using the trapezoidal rule
+        qrs_area = np.trapz(ecg_signal[int(q_peak):int(s_peak)] - local_baseline)
+        qrs_areas.append(qrs_area)
+        
+        # Highlight the QRS complex on the plot with different colors
+        plt.fill_between(range(int(q_peak), int(s_peak)), ecg_signal[int(q_peak):int(s_peak)], local_baseline, color=color_map(idx), alpha=0.7, label=f'QRS Area {idx + 1} = {qrs_area:.2f}')
+
+# Display the legend and title
+handles, labels = plt.gca().get_legend_handles_labels()
+by_label = dict(zip(labels, handles))
+plt.legend(by_label.values(), by_label.keys(), loc="upper left")
+
+plt.title("ECG Signal with Highlighted QRS Area")
+plt.show()
+
+# Print the QRS areas
+for idx, area in enumerate(qrs_areas, 1):
+    print(f"QRS complex {idx}: Area = {area:.2f}")
+
+```
+:::
+
+## Zadania
+
+### Zadanie 1
+Zaimplementuj funkcję (za pomocą pętli for, bez użycia gotowych funkcji) implementującą metodę trapezów, metodę Simpsona 1/3 i metodę Simpsona 3/8. Porównaj działanie do funkcji dostępnych w bibliotece SciPy (zarówno pod kątem czasu obliczeń jak i uzyskanych wyników). Porównaj dokładność wyznaczonych sum z wartością oczekiwaną, dla wybranych, znanych całek oznaczonych.
+
+```python
+def our_integrate(y, dx, method=”trapezoidal”): 
+   #methods: trapezoidal, simpson_13, simpson_38 pass
+```
+
+### Zadanie 2 (ambitniejsze)
+
+Zaimplementuj własny generator do sumy kumulacyjnej (za pomocą pętli for) i korzystając z niej zaimplementuj rekurencyjnie całkowanie z Zadania 1. Dokonaj wizualizacji przykładowych funkcji i ich całek. Jakie zalety ma implementacja rekurencyjna całkowania? Jakie wady? Porównaj szybkość działania implementacji rekurencyjnej całkowania metodą trapezów/Simpsona z wbudowaną funkcją do całkowania kwadraturą Gaussa z biblioteki SciPy.
+
+```python
+def our_integrate_recur(y, dx, mode="trapezoidal"): 
+#trapezoidal, simpson_13, simpson_38
+pass # should use yield
+```
+
+### Zadanie 3
+
+Zaimplementuj własną funkcję do całkowania funkcji dwóch zmiennych metodą trapezów. Porównaj uzyskane wyniki z metodą opartą o kwadratury Gaussa dla dwóch zmiennych pod względem dokładności i szybkości wykonywania. W jakich przypadkach zaimplementowana metoda może być bardziej użyteczna od metod opartych o kwadratury Gaussa?
+
+```python
+def our_integrate_2d(z, x_step, y_step): pass
+```

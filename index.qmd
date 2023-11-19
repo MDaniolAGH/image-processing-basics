@@ -1,0 +1,26 @@
+---
+title: "Podstawy Metod Komputerowych w Obliczeniach Inżynierskich"
+subtitle: "Notatki do przedmiotu"
+---
+
+## Na początek {#welcome}
+
+Strona powstała w zamyśle jako pomoc dydaktyczna dla studentów biorących udział w kursie *Podstawy Metod Komputerowych w Obliczeniach Inżynierskich* oferowanym na Wydziale EAIiIB AGH.
+
+## Wymagania Wstępne
+
+Zajęcia prowadzone są w całości z wykorzystaniem notatników Google Colab na indywidualnym koncie studenta. Zachęcamy jednak do korzystania z IDE takich jak:
+
+- [Visual Studio Code](https://code.visualstudio.com/) - dla bardziej zaawansowanych - z bardzo dużymi możliwościami konfiguracji, 
+- [Spyder](https://www.spyder-ide.org/) dla bardziej początkujących, z dużą ilością dostępnych bibliotek, łatwiejsze w instalacji (szczególnie na Windowsie)
+
+## Zakres Tematyczny
+
+W ciągu semestru poruszymy następujące zagadnienia:
+
+1. Zajęcia wprowadzające, przedstawienie programu laboratorium. Praktycznie wprowadzenie do problemów numerycznych. Przypomnienie podstaw biblioteki NumPy/SciPy/Matplotlib. Wprowadzenie do biblioteki PyTorch.
+2. Różniczkowanie numeryczne. Sposoby obliczania gradientu. Podstawowe typu gradientu. Splot. Analiza błędów numerycznych w porównaniu do rozwiązań analitycznych. Implementacja gradientów analitycznych. Przykłady praktyczne.
+3. Całkowanie numeryczne. Podstawowe algorytmy całkowania numerycznego. Analiza błędu całkowania. Całkowanie numeryczne, a analityczne. Przykłady praktyczne.
+
+
+

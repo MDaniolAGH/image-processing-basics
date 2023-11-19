@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Notatki do przedmiotu PMK – lab2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../labs/lab3.html" rel="next">
+<link href="../labs/lab1.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab2.html">Laboratorium 2</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/PMK_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Na początek</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laboratorium 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Laboratorium 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laboratorium 3</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#laboratorium-2" id="toc-laboratorium-2" class="nav-link active" data-scroll-target="#laboratorium-2">Laboratorium 2</a>
+  <ul class="collapse">
+  <li><a href="#zakres-tematyczny" id="toc-zakres-tematyczny" class="nav-link" data-scroll-target="#zakres-tematyczny">Zakres Tematyczny</a></li>
+  <li><a href="#różniczkowanie---analityczne-oraz-numeryczne" id="toc-różniczkowanie---analityczne-oraz-numeryczne" class="nav-link" data-scroll-target="#różniczkowanie---analityczne-oraz-numeryczne">Różniczkowanie - analityczne oraz numeryczne</a></li>
+  <li><a href="#sposoby-obliczania-gradientu" id="toc-sposoby-obliczania-gradientu" class="nav-link" data-scroll-target="#sposoby-obliczania-gradientu">Sposoby obliczania gradientu</a>
+  <ul class="collapse">
+  <li><a href="#metoda-analityczna" id="toc-metoda-analityczna" class="nav-link" data-scroll-target="#metoda-analityczna">Metoda Analityczna</a></li>
+  <li><a href="#metoda-numeryczna" id="toc-metoda-numeryczna" class="nav-link" data-scroll-target="#metoda-numeryczna">Metoda Numeryczna</a></li>
+  </ul></li>
+  <li><a href="#podstawowe-typy-gradientu" id="toc-podstawowe-typy-gradientu" class="nav-link" data-scroll-target="#podstawowe-typy-gradientu">Podstawowe typy gradientu</a></li>
+  <li><a href="#splot" id="toc-splot" class="nav-link" data-scroll-target="#splot">Splot</a>
+  <ul class="collapse">
+  <li><a href="#czym-jest-splot" id="toc-czym-jest-splot" class="nav-link" data-scroll-target="#czym-jest-splot">Czym jest splot</a></li>
+  <li><a href="#splot-a-różniczkowanie-numeryczne" id="toc-splot-a-różniczkowanie-numeryczne" class="nav-link" data-scroll-target="#splot-a-różniczkowanie-numeryczne">Splot a różniczkowanie numeryczne</a></li>
+  </ul></li>
+  <li><a href="#analiza-błędów-numerycznych-w-porównaniu-do-rozwiązań-analitycznych" id="toc-analiza-błędów-numerycznych-w-porównaniu-do-rozwiązań-analitycznych" class="nav-link" data-scroll-target="#analiza-błędów-numerycznych-w-porównaniu-do-rozwiązań-analitycznych">Analiza błędów numerycznych w porównaniu do rozwiązań analitycznych</a></li>
+  <li><a href="#implementacja-gradientów-analitycznych" id="toc-implementacja-gradientów-analitycznych" class="nav-link" data-scroll-target="#implementacja-gradientów-analitycznych">Implementacja gradientów analitycznych</a></li>
+  <li><a href="#przykłady-praktyczne" id="toc-przykłady-praktyczne" class="nav-link" data-scroll-target="#przykłady-praktyczne">Przykłady Praktyczne</a>
+  <ul class="collapse">
+  <li><a href="#wykrywanie-krawędzi" id="toc-wykrywanie-krawędzi" class="nav-link" data-scroll-target="#wykrywanie-krawędzi">Wykrywanie krawędzi</a></li>
+  <li><a href="#algorytm-pan-tompkins" id="toc-algorytm-pan-tompkins" class="nav-link" data-scroll-target="#algorytm-pan-tompkins">Algorytm Pan-Tompkins</a></li>
+  </ul></li>
+  <li><a href="#zadania-domowe" id="toc-zadania-domowe" class="nav-link" data-scroll-target="#zadania-domowe">Zadania Domowe</a>
+  <ul class="collapse">
+  <li><a href="#zadanie-1" id="toc-zadanie-1" class="nav-link" data-scroll-target="#zadanie-1">Zadanie 1</a></li>
+  <li><a href="#zadanie-2" id="toc-zadanie-2" class="nav-link" data-scroll-target="#zadanie-2">Zadanie 2</a></li>
+  <li><a href="#zadanie-3" id="toc-zadanie-3" class="nav-link" data-scroll-target="#zadanie-3">Zadanie 3</a></li>
+  <li><a href="#zadanie-4" id="toc-zadanie-4" class="nav-link" data-scroll-target="#zadanie-4">Zadanie 4</a></li>
+  <li><a href="#zadanie-5" id="toc-zadanie-5" class="nav-link" data-scroll-target="#zadanie-5">Zadanie 5</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MDaniol/pmk-notes/edit/main/labs/lab2.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/MDaniol/pmk-notes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="laboratorium-2" class="level1">
+<h1>Laboratorium 2</h1>
+<section id="zakres-tematyczny" class="level2">
+<h2 class="anchored" data-anchor-id="zakres-tematyczny">Zakres Tematyczny</h2>
+<ol type="1">
+<li>Różniczkowanie numeryczne,</li>
+<li>Sposoby obliczania gradientu,</li>
+<li>Podstawowe typy gradientu,</li>
+<li>Splot,</li>
+<li>Analiza błędów numerycznych w porównaniu do rozwiązań analitycznych,</li>
+<li>Implementacja gradientów analitycznych,</li>
+<li>Przykłady praktyczne,</li>
+<li>Zadania do samodzielnego rozwiązania.</li>
+</ol>
+</section>
+<section id="różniczkowanie---analityczne-oraz-numeryczne" class="level2">
+<h2 class="anchored" data-anchor-id="różniczkowanie---analityczne-oraz-numeryczne">Różniczkowanie - analityczne oraz numeryczne</h2>
+<p>Do różniczkowania można podejść zarówno numerycznie, jak i analitycznie, a każde z nich ma swój własny zestaw zalet i ograniczeń.</p>
+<ol type="1">
+<li><strong>Definicja:</strong>
+<ul>
+<li><strong>Różniczkowanie analityczne</strong> Polega na wykorzystaniu reguł różniczkowania (takich jak reguła potęg, reguła iloczynu, reguła łańcucha itp.) do znalezienia pochodnej funkcji. Na przykład pochodna <span class="math inline">\(f(x) = x^2\)</span> to <span class="math inline">\(f'(x) = 2x\)</span>.</li>
+<li><strong>Różniczkowanie numeryczne</strong> Różniczkowanie numeryczne to metoda przybliżonego obliczania pochodnych funkcji za pomocą technik numerycznych. Zamiast korzystać z klasycznych reguł różniczkowania, stosuje się różnice skończone oparte na wartościach funkcji w określonych punktach.</li>
+</ul></li>
+<li><strong>Dokładność:</strong>
+<ul>
+<li><strong>Różniczkowanie analityczne</strong> Dostarcza dokładnego wyrażenia dla pochodnej, zakładając, że nie popełniono błędów w procesie obliczenia pochodnej analitycznie.</li>
+<li><strong>Różniczkowanie numeryczne</strong> Dostarcza tylko przybliżenie pochodnej. Dokładność przybliżenia jest zależna od długości kroku <span class="math inline">\(h\)</span>. Zbyt duża wartość <em>h</em> może wprowadzić błędy obcięcia podczas gdy zbyt mała wartość może wprowadzić błędy zaokrąglenia.</li>
+</ul></li>
+<li><strong>Zastosowanie:</strong>
+<ul>
+<li><strong>Różniczkowanie analityczne</strong> Ograniczone do funkcji, które można różniczkować za pomocą znanych reguł i technik (np. pochodną funkcji sinus jest funkcja cosinus). Niektóre złożone funkcje mogą być trudne lub niemożliwe do zróżniczkowania analitycznie.</li>
+<li><strong>Różniczkowanie numeryczne</strong> Można je stosować do prawie każdej funkcji, pod warunkiem że funkcja jest dobrze zachowująca się (tj. ciągła i gładka) w interesującym regionie. Sprawia to, że jest użyteczne dla funkcji, dla których trudno uzyskać analityczną pochodną (np. sygnał EKG)</li>
+</ul></li>
+<li><strong>Narzędzia:</strong>
+<ul>
+<li><strong>Różniczkowanie analityczne</strong> Wykonywane za pomocą manipulacji algebraicznych, symbolicznych narzędzi obliczeniowych takich jak <em>Mathematica</em> lub <em>Maple</em>, lub systemów algebry komputerowej (CAS) w kalkulatorach.</li>
+<li><strong>Różniczkowanie numeryczne</strong> Implementowane za pomocą języków programowania, oprogramowania takiego jak <em>MATLAB</em> czy <em>Python</em> (z bibliotekami takimi jak <em>NumPy</em> lub <em>SciPy</em>), lub konkretnych narzędzi do obliczeń numerycznych.</li>
+</ul></li>
+</ol>
+</section>
+<section id="sposoby-obliczania-gradientu" class="level2">
+<h2 class="anchored" data-anchor-id="sposoby-obliczania-gradientu">Sposoby obliczania gradientu</h2>
+<p>Ogólnie sposoby obliczania gradientu można podzielić na metody analityczne i numeryczne.</p>
+<section id="metoda-analityczna" class="level3">
+<h3 class="anchored" data-anchor-id="metoda-analityczna">Metoda Analityczna</h3>
+<ul>
+<li>Polega na bezpośrednim zastosowaniu reguł różniczkowania matematycznego do obliczenia gradientu</li>
+<li>Idealna w przypadkach gdy funkcja jest jasno określona oraz różniczkowalna w całej dziedzinie</li>
+<li>Dla funkcji wektora skalarnego <span class="math inline">\(f(\mathbf{x})\)</span> gdzie <span class="math inline">\(\mathbf{x}\)</span> jest wektorem w przestrzeni <span class="math inline">\(\mathbb{R}^n\)</span>, <span class="math inline">\(\nabla f(\mathbf{x}) = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right]\)</span></li>
+</ul>
+</section>
+<section id="metoda-numeryczna" class="level3">
+<h3 class="anchored" data-anchor-id="metoda-numeryczna">Metoda Numeryczna</h3>
+<ul>
+<li>Przybliża gradient poprzez obliczenie funkcji w dwóch pobliskich punktach i obliczenie różnicy.</li>
+<li>Przydatne, gdy gradient analityczny jest trudny do uzyskania lub podczas weryfikacji poprawności gradientu analitycznego.</li>
+<li>Powszechnie stosowane metody to metoda różnic w przód, w tył i metoda różnic centralnych.</li>
+</ul>
+<section id="metoda-różnic-w-przód" class="level4">
+<h4 class="anchored" data-anchor-id="metoda-różnic-w-przód">Metoda różnic w przód</h4>
+<ul>
+<li><span class="math inline">\(\frac{\partial f(\mathbf{x})}{\partial x} \approx \frac{f(\mathbf{x} + h ) - f(\mathbf{x})}{h}\)</span></li>
+</ul>
+</section>
+<section id="metoda-różnic-w-tył" class="level4">
+<h4 class="anchored" data-anchor-id="metoda-różnic-w-tył">Metoda różnic w tył</h4>
+<ul>
+<li><span class="math inline">\(\frac{\partial f(\mathbf{x})}{\partial x} \approx \frac{f(\mathbf{x}) - f(\mathbf{x} - h)}{h}\)</span></li>
+</ul>
+</section>
+<section id="metoda-różnic-centralnych" class="level4">
+<h4 class="anchored" data-anchor-id="metoda-różnic-centralnych">Metoda różnic centralnych</h4>
+<ul>
+<li><span class="math inline">\(\frac{\partial f(\mathbf{x})}{\partial x} \approx \frac{f(\mathbf{x} + h) - f(\mathbf{x} - h)}{2h}\)</span></li>
+</ul>
+</section>
+<section id="przykład" class="level4">
+<h4 class="anchored" data-anchor-id="przykład">Przykład</h4>
+<p>Załóżmy że mamy sygnał <span class="math inline">\(\textbf{s}\)</span> o następujących wartościach:</p>
+<p><span class="math display">\[ s = [0, 0.04, 0.19, 0.44, 0.79, 1.23, 1.77, 2.41, 3.16, 4] \]</span></p>
+<p>Otrzymano go próbkując sygnał napięciowy z częstotliwością <span class="math inline">\(f = 1 \text{Hz}\)</span>. Co sekundę zapisywano kolejne wartości sygnału do tablixy <span class="math inline">\(s\)</span>. Interesuje nas przeprowadzenie operacji różniczkowania na tym sygnale metodą “do przodu”.</p>
+<p>Wiemy, że metoda do przodu definiowana jest jako: <span class="math display">\[dx = \frac{f(x+h) - f(x)}{h}\]</span></p>
+<p>Nasz sygnał jest sygnałem numerycznym z wartościami zdefiniowanymi w konkretnych jego punktach, dla indeksów <span class="math inline">\(0, 1, 2, 3... n\)</span> naszej tablicy <span class="math inline">\(s\)</span>. W tym przypadku długość naszego kroku <span class="math inline">\(h\)</span> będzie musiała być wielokrotnością liczby całkowitej <span class="math inline">\(1\)</span>. Załóżmy więc, że będzie to po prostu 1.</p>
+<p>Przy takim założeniu nasza formuła na metodę “do przodu” przybierze postać: <span class="math display">\[dx = \frac{f(x+1) - f(x)}{1}\]</span> gdzie:<br>
+<br>
+<span class="math inline">\(dx\)</span> - wartość różniczki w danym punkcie<br>
+<span class="math inline">\(x\)</span> - indeks tablicy <span class="math inline">\(s\)</span></p>
+<p>Przykład takiego obliczania pochodnej sygnału dyskretnego z naszej tablicy <span class="math inline">\(s\)</span> zilustrowano na rysunku poniżej.</p>
+<p><img src="images/forward_difference_method.png" class="img-fluid"></p>
+</section>
+<section id="implementacja-funkcyjna" class="level4">
+<h4 class="anchored" data-anchor-id="implementacja-funkcyjna">Implementacja funkcyjna</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward_difference(f, x, h<span class="op">=</span><span class="fl">1e-5</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Approximate the derivative of f at x using the forward difference method.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - f: The function to differentiate.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - x: The point at which to evaluate the derivative.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    - h: A small step size for differentiation, default value is 1e-5.</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    - The approximated derivative of f at x.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (f(x <span class="op">+</span> h) <span class="op">-</span> f(x)) <span class="op">/</span> h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="implementacja-dyskretna" class="level4">
+<h4 class="anchored" data-anchor-id="implementacja-dyskretna">Implementacja dyskretna</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward_difference(signal):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Approximate the derivative of a discrete signal using the forward difference method.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - signal: Numpy array containing discrete signal values.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    - Numpy array containing the approximated derivative values.</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    derivative <span class="op">=</span> np.zeros_like(signal)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Dla każdego punktu w sygnale proszę obliczyć różnicę do przodu</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Pytanie: Co zrobić z ostatnią próbką sygnału?</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(signal) <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        derivative[i] <span class="op">=</span> signal[i <span class="op">+</span> <span class="dv">1</span>] <span class="op">-</span> signal[i]</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> derivative</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="podstawowe-typy-gradientu" class="level2">
+<h2 class="anchored" data-anchor-id="podstawowe-typy-gradientu">Podstawowe typy gradientu</h2>
+</section>
+<section id="splot" class="level2">
+<h2 class="anchored" data-anchor-id="splot">Splot</h2>
+<section id="czym-jest-splot" class="level3">
+<h3 class="anchored" data-anchor-id="czym-jest-splot">Czym jest splot</h3>
+<p>W matematyce splot jest operacją matematyczną na dwóch funkcjach (<span class="math inline">\(f\)</span> i <span class="math inline">\(g\)</span>), która tworzy trzecią funkcję (<span class="math inline">\(f*g\)</span>), która wyraża sposób, w jaki kształt jednej jest modyfikowany przez drugą.</p>
+<p>Operacja splotu dyskretnego często opisywana jest przez równanie: <span class="math display">\[h[n] = (f * g)[n] = \sum_{m=-\infty}^{\infty} f[m] g[n - m]\]</span></p>
+<p>Poszczególne składniki tego równania przedstawiają się następująco:<br>
+<br>
+<span class="math inline">\(h[n]\)</span> - Jest to sekwencja wyjściowa (wynikowa) po operacji splotu. Dla każdej wartości <span class="math inline">\(n\)</span>, <span class="math inline">\(h[n]\)</span> reprezentuje wartość splotu dla tego konkretnego punktu &nbsp;<br>
+<br>
+<span class="math inline">\((f * g)[n]\)</span> - To jest alternatywna notacja dla <span class="math inline">\(h[n]\)</span> i wskazuje na operację splotu między <span class="math inline">\(f\)</span> a <span class="math inline">\(g\)</span> w punkcie <span class="math inline">\(n\)</span>,&nbsp;<br>
+<br>
+<span class="math inline">\(\sum_{m=-\infty}^{\infty}\)</span> - Oznacza sumowanie (czyli dodawanie wartości) dla wszystkich wartości mm od minus nieskończoności do plus nieskończoności. W praktyce, w komputerowych implementacjach splotu, zakres ten jest zwykle ograniczony do długości sekwencji wejściowych.<br>
+<br>
+<span class="math inline">\(f[m]\)</span> - Jest to wartość sekwencji <span class="math inline">\(f\)</span> w punkcie <span class="math inline">\(m\)</span>. <span class="math inline">\(f\)</span> jest jednym z sygnałów wejściowych (często nazywanym sygnałem wejściowym).<br>
+<br>
+<strong><span class="math inline">\(g[n - m]\)</span></strong> - Jest to wartość sekwencji <span class="math inline">\(g\)</span> w punkcie <span class="math inline">\(n−m\)</span>. <span class="math inline">\(g\)</span> jest drugim sygnałem wejściowym (często nazywanym kernelem). <span class="math inline">\(n−m\)</span> oznacza “przesunięcie” sekwencji <span class="math inline">\(g\)</span> względem <span class="math inline">\(f\)</span>, co pozwala na “skanowanie” i mnożenie tych dwóch sygnałów . To jest bardzo ważne, gdyż zachodzą tu dwie rzeczy: - Przesunięcie - Dla każdego <span class="math inline">\(m\)</span> sygnał <span class="math inline">\(g\)</span> jest przesuwany względem <span class="math inline">\(f\)</span>. Przesunięcie oznacza, że wartości sygnału <span class="math inline">\(g\)</span> są mnożone przez odpowiadające im wartości w sygnale <span class="math inline">\(f\)</span> w miarę jak zmienia się <span class="math inline">\(m\)</span>. - Odbicie - W kontekście splotu, odbicie jednego z sygnałów (często kernela) jest kluczowym krokiem. Proces ten polega na odwróceniu kolejności próbek sygnału względem osi czasu lub indeksu. Odbicie jest konieczne, aby poprawnie ocenić, jak kernel wpłynie na każdy fragment sygnału wejściowego w trakcie operacji splotu.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład Intuicyjny
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Fabuła:</strong><br>
+Organizujemy pokaz fajerwerków. Chcemy aby w każdej sekundzie wystrzeliwanych było <span class="math inline">\(n\)</span> fajerwerków. Każdy fajerwerk spala się według funkcji spalania <span class="math inline">\(s\)</span>. Chcemy obliczyć ile jednostek gazów spalania znajduje się w danej sekundzie pokazu fajerwerków w atmosferze.</p>
+<p><strong>Obliczenia:</strong><br>
+</p>
+<p>Mamy sygnał odpalania fajerwerków: <span class="math display">\[f(t) = [1, 2, 2, 1]\]</span><br>
+Sygnał ten, mówi nam że: - W pierwszej sekundzie odpalamy 1 fajerwerk - W drugiej sekundzie odpalamy 2 fajerwerki - W trzeciej sekundzie odpalamy 2 fajerwerki - W czwartej sekundzie odpalamy 1 fajerwerk<br>
+<br>
+Każdy fajerwerk spala się zgodnie z funkcją: <span class="math display">\[s(t) = [2, 1, 0]\]</span><br>
+Oznacza to, że:</p>
+<ul>
+<li>W pierwszej sekundzie po odpaleniu fajerwerk emituje 2 jednostki gazu,</li>
+<li>W drugiej sekundzie po odpaleniu emituje 1 jednostkę gazu</li>
+<li>W trzeciej sekundzie nie emituje gazu (bo zgasł)</li>
+</ul>
+<p>Aby obliczyć całkowitą ilość emitowanego gazu w funkcji czasu, wykonujemy splot sygnału odpalania fajerwerków z funkcją spalania:</p>
+<p><span class="math display">\[h(t) = f(t) * s(t)\]</span></p>
+<p>Wynik splotu będzie wyglądał następująco:</p>
+<ol type="1">
+<li><span class="math inline">\((1 × 2) = 2\)</span></li>
+<li><span class="math inline">\((1 × 1)+(2 × 2)= 1 + 4 = 5\)</span></li>
+<li><span class="math inline">\((1×0)+(2×1)+(2×2)=0+2+4=6\)</span></li>
+<li><span class="math inline">\((2×0)+(2×1)+(1×2)=0+2+2=4\)</span></li>
+<li><span class="math inline">\((2×0)+(1×1)=1\)</span></li>
+<li><span class="math inline">\((1×0)=0\)</span></li>
+</ol>
+<p><br>
+Więc sygnał <span class="math inline">\(h(t)\)</span>, który przedstawia ilość emitowanego gazu w funkcji czasu, wynosi:</p>
+<p><span class="math display">\[h(t) = [2,5,6,4,1,0]\]</span></p>
+<p>Ten wynik mówi nam że:</p>
+<ul>
+<li>w pierwszej sekundzie emitujemy 2 jednostki gazu,</li>
+<li>w drugiej sekundzie 5 jednostek,</li>
+<li>w trzeciej sekundzie 6 jednostek,</li>
+<li>w czwartej sekundzie 4 jednostki,</li>
+<li>w piątej sekundzie 1 jednostkę,</li>
+<li>a w szóstej sekundzie 0 jednostek.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="splot-a-różniczkowanie-numeryczne" class="level3">
+<h3 class="anchored" data-anchor-id="splot-a-różniczkowanie-numeryczne">Splot a różniczkowanie numeryczne</h3>
+<p>Przeanalizujmy wzory na</p>
+<table class="table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 33%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metoda</th>
+<th>Pierwsza pochodna (<span class="math inline">\(f'(x)\)</span>)</th>
+<th>Druga pochodna (<span class="math inline">\(f''(x)\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Do przodu</td>
+<td><span class="math inline">\(\frac{f(x+h) - f(x)}{h}\)</span></td>
+<td><span class="math inline">\(\frac{f(x+2h) - 2f(x+h) + f(x)}{h^2}\)</span></td>
+</tr>
+<tr class="even">
+<td>Różnic centralnych</td>
+<td><span class="math inline">\(\frac{f(x+h) - f(x-h)}{2h}\)</span></td>
+<td><span class="math inline">\(\frac{f(x+h) - 2f(x) + f(x-h)}{h^2}\)</span></td>
+</tr>
+<tr class="odd">
+<td>Do tyłu</td>
+<td><span class="math inline">\(\frac{f(x) - f(x-h)}{h}\)</span></td>
+<td><span class="math inline">\(\frac{f(x) - 2f(x-h) + f(x-2h)}{h^2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><br>
+Patrząc na tabelę, zauważmy że:</p>
+<ol type="1">
+<li>W kolejnych pochodnych zawsze używamy jedynie próbek z różniczkowanego sygnału oraz kroku <span class="math inline">\(h\)</span></li>
+<li>W każdym równaniu występują pewne znane komponenty: <span class="math inline">\(f(x)\)</span>, <span class="math inline">\(f(x+h)\)</span>, <span class="math inline">\(f(x+2h)\)</span>, <span class="math inline">\(f(x-h)\)</span>, <span class="math inline">\(f(x - 2h)\)</span>.</li>
+</ol>
+<p>Możemy zatem naszą tabelę zapisać w inny sposób, rozbijając ją na elementy z konkretnymi współczynnikami, na przykład:</p>
+<ul>
+<li>Metoda różnic ‘do przodu’, pierwsza pochodna: <span class="math inline">\(\frac{1 × f(x+h) -1 × f(x)}{h}\)</span>. Czyli możemy przyjąć, że kernel takiej operacji to: <span class="math inline">\([1, -1]\)</span> a wynik możemy po prostu podzielić przez <span class="math inline">\(h\)</span>.</li>
+</ul>
+<p>Innymi słowy, obliczenie pierwszej pochodnej sygnału <span class="math inline">\(s\)</span> może być przeprowadzone z wykorzystaniem splotu z kernelem <span class="math inline">\(g = [-1, 1]\)</span>odpowiadającym operacji pierwszej pochodnej.</p>
+<p><strong>Przykład numeryczny:</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Zdefiniujmy jakiś sygnał dyskretny</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">17</span>, <span class="dv">19</span>])</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Zdefiniujmy kernel dla obliczenia pierwszej pochodnej metodą "do przodu"</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>kernel <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">1</span><span class="op">/</span>h, <span class="dv">1</span><span class="op">/</span>h])</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Obliczamy pierwszą pochodną używając splotu</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Używamy opcji 'valid' aby uniknąć artefaktów krańcowych (boundary effect)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Przejrzyj dokumentację funkcji np.convolve aby dowiedzieć się jak działa</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> np.convolve(s, kernel, mode<span class="op">=</span><span class="st">'valid'</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="analiza-błędów-numerycznych-w-porównaniu-do-rozwiązań-analitycznych" class="level2">
+<h2 class="anchored" data-anchor-id="analiza-błędów-numerycznych-w-porównaniu-do-rozwiązań-analitycznych">Analiza błędów numerycznych w porównaniu do rozwiązań analitycznych</h2>
+<p><strong>Definicja błędu:</strong> Błąd numeryczny to różnica między wartością otrzymaną z metody numerycznej a dokładną wartością analityczną.</p>
+<p><strong>Źródła błędów:</strong></p>
+<ul>
+<li><strong>Błąd zaokrąglenia:</strong> Powstaje w wyniku reprezentacji liczb w komputerze z ograniczoną precyzją.</li>
+<li><strong>Błąd przybliżenia:</strong> Powstaje w wyniku stosowania metod przybliżonych do obliczeń, np. stosując metody różnicowe do przybliżania pochodnych.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład Analizy Błędów
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Funkcja</strong>: <span class="math inline">\(f(x) = x^2\)</span></p>
+<p><strong>Dla</strong> <span class="math inline">\(x = 2\)</span>: <span class="math display">\[f(2) = 2^2 = 4\]</span> <span class="math display">\[f(2 + h) = (2 + 0.01)^2 = 4.0401\]</span></p>
+<p><strong>Pochodna Numeryczna</strong> używając metody różnic skończonych do przodu: <span class="math display">\[f'(x) \approx \frac{f(x+h) - f(x)}{h}\]</span> <span class="math display">\[f'(2) \approx \frac{f(2+0.01) - f(2)}{0.01}\]</span> <span class="math display">\[f'(2) \approx \frac{4.0401 - 4}{0.01} = 4.01\]</span></p>
+<p><strong>Pochodna Analityczna</strong>: <span class="math display">\[f'(x) = 2x\]</span> <span class="math display">\[f'(2) = 2(2) = 4\]</span></p>
+<p><strong>Błąd Numeryczny</strong>: <span class="math display">\[\text{Błąd} = \text{Wartość Numeryczna} - \text{Wartość Analityczna}\]</span> <span class="math display">\[\text{Błąd} = 4.01 - 4 = 0.01\]</span></p>
+<p><strong>Analiza Błędu Numerycznego</strong>: - Błąd wynosi 0.01 dla kroku <span class="math inline">\(h = 0.01\)</span> przy <span class="math inline">\(x = 2\)</span>. - Błąd ten pochodzi z przybliżenia i będzie się różnić w zależności od wielkości kroku <span class="math inline">\(h\)</span>. Dla mniejszego <span class="math inline">\(h\)</span> błąd mógłby być mniejszy, ale po pewnym czasie błędy zaokrąglenia mogą zacząć dominować co spowoduje powtórne zwiększenie się błędu numerycznego. - Możemy przeprowadzić dodatkowe obliczenia dla różnych wartości <span class="math inline">\(h\)</span>, aby zrozumieć, jak błąd zmienia się w zależności od wielkości kroku.</p>
+<p>W praktyce warto przeprowadzić analizę błędów dla różnych wartości <span class="math inline">\(h\)</span> i różnych punktów <span class="math inline">\(x\)</span>, aby zrozumieć zachowanie metody numerycznej w różnych warunkach.</p>
+<p><strong>Czy możemy przeprowadzić obliczenia analityczne komputerowo?</strong></p>
+<p>Częściowo tak. Możemy w tym celu wykorzystać bibliotekę Pythona <code>SymPy</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Zdefiniowanie symbolu</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> sp.Symbol(<span class="st">'x'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Funkcja</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pochodna funkcji</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>f_prime <span class="op">=</span> sp.diff(f, x)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Pochodna funkcji </span><span class="sc">{</span>f<span class="sc">}</span><span class="ss"> to: </span><span class="sc">{</span>f_prime<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>SymPy to biblioteka Pythona o otwartym kodzie źródłowym dla matematyki symbolicznej. Jej celem jest stanie się w pełni funkcjonalnym systemem algebry komputerowej (CAS - Computer Algebra System), przy jednoczesnym utrzymaniu kodu tak prostym, jak to możliwe, aby był zrozumiały i łatwy do rozszerzenia. Obliczenia symboliczne, często określane jako algebra symboliczna lub algebra komputerowa, to gałąź obliczeń matematycznych i informatyki, która koncentruje się na manipulowaniu wyrażeniami matematycznymi w formie symbolicznej, a nie na uzyskiwaniu przybliżeń numerycznych.</p>
+</div>
+</div>
+</section>
+<section id="implementacja-gradientów-analitycznych" class="level2">
+<h2 class="anchored" data-anchor-id="implementacja-gradientów-analitycznych">Implementacja gradientów analitycznych</h2>
+<p>Obliczmy gradient analitycznie za pomocą biblioteki obliczeń symbolicznych w Pythonie, <code>sympy</code>.</p>
+<p>Jako przykład użyjmy prostej funkcji dwóch zmiennych: <span class="math display">\[f(x, y) = x^2 + 3xy + y^2\]</span></p>
+<p>Gradient funkcji <span class="math inline">\(f\)</span> jest wektorem jego pochodnych cząstkowych względem każdej ze zmiennych (w naszym przykładzie względem <span class="math inline">\(x\)</span> oraz <span class="math inline">\(y\)</span>): <span class="math display">\[\nabla f = \left[ \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y} \right]\]</span></p>
+<p>Przeanalizujmy jak przeprowadzić takie obliczenia symbolicznie, z wykorzystaniem biblioteki <code>sympy</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiujemy zmienne</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x y'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiujemy funkcje</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x<span class="op">*</span>y <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Obliczamy gradient</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>grad_f <span class="op">=</span> [sp.diff(f, var) <span class="cf">for</span> var <span class="kw">in</span> (x, y)]</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Gradient:"</span>, grad_f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Powinniśmy otrzymać następujący wynik:</p>
+<pre><code>Gradient: [2*x + 3*y, 3*x + 2*y]</code></pre>
+<p>Podsumowując, gradientem naszej funkcji <span class="math inline">\(f(x, y)\)</span> jest <span class="math inline">\([2x + 3y, 3x + 2y]\)</span>.</p>
+<p>Funkcja <code>sympy.diff()</code> zapewnia analityczną (dokładną) pochodną, w przeciwieństwie do aproksymacji numerycznej.</p>
+<p>Zwizualizujmy ten przykład:</p>
+<p><img src="images/lab2_gradients.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kod użyty do wygenerowania wizualizacji
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiujemy zmienne i funkcje</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> sp.symbols(<span class="st">'x y'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x<span class="op">*</span>y <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>grad_f <span class="op">=</span> [sp.diff(f, var) <span class="cf">for</span> var <span class="kw">in</span> (x, y)]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Lambdyfikacja wyrażeń symbolicznych (proces konieczny do wyznaczenia ich wartości dla konkretnych danych numerycznych)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>f_callable <span class="op">=</span> sp.lambdify((x, y), f, <span class="st">'numpy'</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>f_gradient <span class="op">=</span> sp.lambdify((x, y), grad_f, <span class="st">'numpy'</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzenie siatki punktów na których rozepniemy nasze dane (bardzo ważna czynność!)</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">20</span>), np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">20</span>))</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Obliczenie wartości funkcji na konkretnych punktach siatki</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> f_callable(X, Y)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>U, V <span class="op">=</span> f_gradient(X, Y)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalizacja danych (dla lepszej wizualizacji)</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> np.sqrt(U<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> V<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>U <span class="op">/=</span> N</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>V <span class="op">/=</span> N</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Wyrysowanie funkcji używając metody contour oraz mapy kolorów 'viridis'</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>contour <span class="op">=</span> plt.contourf(X, Y, Z, <span class="dv">20</span>, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>plt.colorbar(contour, label<span class="op">=</span><span class="st">'f(x, y) value'</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Narysowanie strzałek reprezentujących wartości gradientu</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>plt.quiver(X, Y, U, V, angles<span class="op">=</span><span class="st">'xy'</span>, scale_units<span class="op">=</span><span class="st">'xy'</span>, scale<span class="op">=</span><span class="dv">1</span>, color<span class="op">=</span><span class="st">'r'</span>, width<span class="op">=</span><span class="fl">0.005</span>)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'f(x, y) and its Gradient'</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>,linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="przykłady-praktyczne" class="level2">
+<h2 class="anchored" data-anchor-id="przykłady-praktyczne">Przykłady Praktyczne</h2>
+<section id="wykrywanie-krawędzi" class="level3">
+<h3 class="anchored" data-anchor-id="wykrywanie-krawędzi">Wykrywanie krawędzi</h3>
+<p>Gradienty mogą być użyte jako najprostsza metoda wykrywania krawędzi, zwłaszcza na obrazach binarnych.</p>
+<p><img src="images/gradient_example_circles.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kod użyty do wygenerowania przykładu z kołem
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>width, height <span class="op">=</span> <span class="dv">200</span>, <span class="dv">200</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Krok 1: Używamy meshgrid do utworzenia siatki współrzędnych</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> np.meshgrid(np.arange(width), np.arange(height))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>centerx, centery <span class="op">=</span> width <span class="op">//</span> <span class="dv">2</span>, height <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>radius <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> (x <span class="op">-</span> centerx)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (y <span class="op">-</span> centery)<span class="op">**</span><span class="dv">2</span> <span class="op">&lt;=</span> radius<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>circle_img <span class="op">=</span> np.zeros((width, height))</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>circle_img[mask] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Krok 2: Obliczamy gradient</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>gy, gx <span class="op">=</span> np.gradient(circle_img)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Krok 3: Wizualizacja</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(circle_img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">"Oryginalne Koło"</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(gx, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Gradient względem X"</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].imshow(gy, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].set_title(<span class="st">"Gradient względem Y"</span>)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    ax.axis(<span class="st">'off'</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="algorytm-pan-tompkins" class="level3">
+<h3 class="anchored" data-anchor-id="algorytm-pan-tompkins">Algorytm Pan-Tompkins</h3>
+<p>Jednym z algorytmów wykrywających zespół QRS na sygnale EKG jest algorytm Pan-Tompkins. Składa się on z następujących kroków:</p>
+<ol type="1">
+<li>Filtracja pasmowo przepustowa usuwająca zakłócenia sieciowe z sygnału</li>
+<li><strong>Różniczkowanie</strong> - służy to podkreśleniu cech morfologicznych sygnału</li>
+<li>Kwadrat - podnosimy sygnał do kwadratu celem wzmocnienia cech morfologicznych</li>
+<li>Integracja (moving average) - operacja ta jest używana do uzyskania finalnego kształtu fali QRS. Sygnał jest przetwarzany za pomocą okna czasowego (np. 30 ms), co skutkuje wygładzeniem sygnału.</li>
+<li>Progowanie - na podstawie przetworzonego sygnału określany jest próg, który służy do wykrywania kompleksów QRS. Wielkość progu jest dynamicznie dostosowywana w trakcie analizy.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab2_pan_tompkins_step_by_step.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Algorytm Pan-Tompkins krok po kroku</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kod użyty do wygenerowania wizualizacji Pan-Tompkins
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co"># biblioteka numpy do obliczeń numerycznych</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> neurokit2 <span class="im">as</span> nk <span class="co"># NeuroKit2 - zawiera generator syntetycznego EKG</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># Matplotlib - Rysowanie wykresów</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bandpass_filter(signal):</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Placeholder na filtr pasmowo przepustowy - </span><span class="al">TODO</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> signal</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Różniczkowanie</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> differentiate(signal):</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.diff(signal)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Kwadrat</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> square(signal):</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> signal <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Całkowanie</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> integrate(signal, window_size):</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.convolve(signal, np.ones(window_size)<span class="op">/</span>window_size, mode<span class="op">=</span><span class="st">'same'</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Progowanie</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_qrs(signal, threshold):</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    qrs_locs <span class="op">=</span> np.where(signal <span class="op">&gt;</span> threshold)[<span class="dv">0</span>]</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qrs_locs</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Pan Tompkins zawarty w jednej funkcji</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pan_tompkins_qrs_detection(ecg_signal):</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    ecg_signal <span class="op">=</span> bandpass_filter(ecg_signal)</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    differentiated <span class="op">=</span> differentiate(ecg_signal)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    squared <span class="op">=</span> square(differentiated)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    integrated <span class="op">=</span> integrate(squared, window_size<span class="op">=</span><span class="dv">30</span>)  <span class="co"># Adjust based on sampling rate</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    threshold <span class="op">=</span> np.mean(integrated)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    qrs_locs <span class="op">=</span> find_qrs(integrated, threshold)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qrs_locs</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Postprocessing R-peaków</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> refine_r_peaks(qrs_locs, ecg_signal, proximity):</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    r_peaks <span class="op">=</span> []</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    grouped_peaks <span class="op">=</span> []</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> loc <span class="kw">in</span> qrs_locs:</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> grouped_peaks <span class="kw">or</span> <span class="bu">abs</span>(loc <span class="op">-</span> grouped_peaks[<span class="op">-</span><span class="dv">1</span>]) <span class="op">&lt;=</span> proximity:</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>            grouped_peaks.append(loc)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Pick the highest point within this group</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>            r_peak <span class="op">=</span> <span class="bu">max</span>(grouped_peaks, key<span class="op">=</span><span class="kw">lambda</span> x: ecg_signal[x])</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>            r_peaks.append(r_peak)</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>            grouped_peaks <span class="op">=</span> [loc]</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Handle the last group</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> grouped_peaks:</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>        r_peak <span class="op">=</span> <span class="bu">max</span>(grouped_peaks, key<span class="op">=</span><span class="kw">lambda</span> x: ecg_signal[x])</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>        r_peaks.append(r_peak)</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> r_peaks</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Wygenerowanie sygnału syntetycznego EKG</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>ecg_signal <span class="op">=</span> nk.ecg_simulate(duration<span class="op">=</span><span class="dv">10</span>, sampling_rate<span class="op">=</span><span class="dv">1000</span>, heart_rate<span class="op">=</span><span class="dv">70</span>)</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Detekcja z użyciem Pan-Tompkins</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>qrs_locs <span class="op">=</span> pan_tompkins_qrs_detection(ecg_signal)</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Postprocessing</span></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>r_peaks <span class="op">=</span> refine_r_peaks(qrs_locs, ecg_signal, proximity<span class="op">=</span><span class="dv">40</span>) </span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">5</span>))</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>plt.plot(ecg_signal, label<span class="op">=</span><span class="st">'EKG'</span>)</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>plt.plot(r_peaks, ecg_signal[r_peaks], <span class="st">"ro"</span>, label<span class="op">=</span><span class="st">'R-peaki'</span>)</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Syntetyczny sygnał EKG oraz wykryte zespoły QRS z użyciem algorytmu Pan-Tompkins"</span>)</span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Próbki"</span>)</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Amplituda"</span>)</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"lab2_pan_tompkins_ecg.png"</span>, dpi<span class="op">=</span><span class="dv">200</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"png"</span>)</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="zadania-domowe" class="level2">
+<h2 class="anchored" data-anchor-id="zadania-domowe">Zadania Domowe</h2>
+<section id="zadanie-1" class="level3">
+<h3 class="anchored" data-anchor-id="zadanie-1">Zadanie 1</h3>
+<p>Zaimplementuj funkcję, (za pomocą pętli <code>for</code>, bez użycia gotowych funkcji) do obliczania pochodnej funkcji jednej zmiennej metodą “centralną”, “do przodu” i “do tyłu”. Jakie są zalety poszczególnych rozwiązań? Jakie są wady? Kiedy warto użyć jednej wersji zamiast drugiej? Skorzystaj z definicji funkcji:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_derivatie(x, step<span class="op">=</span><span class="dv">1</span>, mode<span class="op">=</span><span class="st">"central"</span>):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>   <span class="co"># x - sygnał wejściowy, dyskretny</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="co"># step - krok</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># mode - tryb działania, możliwe opcje: "central", "forward", "backward"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>   <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="zadanie-2" class="level3">
+<h3 class="anchored" data-anchor-id="zadanie-2">Zadanie 2</h3>
+<p>Zaimplementuj funkcję do obliczania splotu 1D (iteracyjnie, bez transformacji Fouriera, bez użycia gotowych funkcji). Porównaj działanie zaimplementowanej funkcji z funkcją biblioteczną (SciPy) oraz czas wykonywania obliczeń. Która funkcja jest szybsza? O ile? Dlaczego? Czy wyniki są identyczne? Porównaj działanie funkcji bibliotecznej liczącej splot z definicji oraz z transformacji Fouriera. (Sprawdź dla różnych wielkości tablic wejściowych).</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_convolution(x1, x2, mode<span class="op">=</span><span class="st">"pad"</span>):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   <span class="co"># x1 - sygnał 1</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   <span class="co"># x2 - sygnał 2</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>   <span class="co"># mode - tryb działania na granicy sygnału, #pad - padding, #reflect - reflection</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>   <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="zadanie-3" class="level3">
+<h3 class="anchored" data-anchor-id="zadanie-3">Zadanie 3</h3>
+<p>Zaimplementuj funkcję (za pomocą pętli <code>for</code>, bez użycia gotowych funkcji) do obliczenia pochodnej funkcji jednej zmiennej “centralnie”, która umożliwia wybór rzędu pochodnej (1,2,3,4) oraz trybu (splot lub sekwencyjnie). Porównaj wynik z wartościami analitycznymi na przykładowym wielomianie wyższego stopnia. Przeanalizuj błędy numeryczne (m.in. porównaj obliczenia za pomocą splotu z sekwencyjnym obliczaniem pierwszej pochodnej). Porównaj czas wykonania obliczeń. Skąd się biorą różnice? Które rozwiązanie jest szybsze? Które jest bardziej stabilne? Które rozwiązanie jest obarczone mniejszym błędem?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Obliczanie pochodnej sekwencyjnie
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sekwencyjna metoda obliczania pochodnej polega na obliczeniu pochodnej danego sygnału (pierwszej), a następnie pochodną drugiego rzędu dostajemy obliczając pochodną pierwszego rzędu pochodnej pierwszego rzędu itd…</p>
+</div>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_derivative(x, step<span class="op">=</span><span class="dv">1</span>, order<span class="op">=</span><span class="dv">1</span>, mode<span class="op">=</span><span class="st">"conv"</span>):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>   <span class="co"># order - rząd pochodnej, 1,2,3,4</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>   <span class="co"># conv/sequential - tryb działania (konwolucyjnie / sekwencyjnie)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>   <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="zadanie-4" class="level3">
+<h3 class="anchored" data-anchor-id="zadanie-4">Zadanie 4</h3>
+<p>Zaimplementuj funkcję (za pomocą pętli <code>for</code>, bez użycia gotowych funkcji do obliczania pochodnych/gradientów) do obliczenia gradientu centralnego funkcji dwóch zmiennych. Na wejściu funkcji będzie tablica 2D (na przykład obraz). Na wyjściu funkcji powinna być tablica gradientów po x oraz y.</p>
+</section>
+<section id="zadanie-5" class="level3">
+<h3 class="anchored" data-anchor-id="zadanie-5">Zadanie 5</h3>
+<p>Zaimplementuj funkcję (za pomocą pętli <code>for</code>, bez użycia gotowych funkcji do obliczania pochodnych/gradientów) do obliczenia gradientu centralnego funkcji dowolnej liczby zmiennych (wejście w postaci tablicy N-wymiarowej). Porównaj działanie (błędy numeryczne, szybkość obliczeń) do wbudowanej funkcji <code>gradient</code> w bibliotece <code>numpy</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_gradient(x, step<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../labs/lab1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Laboratorium 1</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../labs/lab3.html" class="pagination-link">
+        <span class="nav-page-text">Laboratorium 3</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© CC-By Mateusz Danioł, 2022</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

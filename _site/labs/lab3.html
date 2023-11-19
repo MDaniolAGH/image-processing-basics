@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Notatki do przedmiotu PMK – lab3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../labs/lab2.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab3.html">Laboratorium 3</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/PMK_hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Na początek</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laboratorium 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laboratorium 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/lab3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Laboratorium 3</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#laboratorium-3" id="toc-laboratorium-3" class="nav-link active" data-scroll-target="#laboratorium-3">Laboratorium 3</a>
+  <ul class="collapse">
+  <li><a href="#zakres-tematyczny" id="toc-zakres-tematyczny" class="nav-link" data-scroll-target="#zakres-tematyczny">Zakres Tematyczny</a></li>
+  <li><a href="#całkowanie-numeryczne" id="toc-całkowanie-numeryczne" class="nav-link" data-scroll-target="#całkowanie-numeryczne">Całkowanie numeryczne</a>
+  <ul class="collapse">
+  <li><a href="#metoda-prostokątów" id="toc-metoda-prostokątów" class="nav-link" data-scroll-target="#metoda-prostokątów">Metoda Prostokątów</a></li>
+  <li><a href="#metoda-trapezów" id="toc-metoda-trapezów" class="nav-link" data-scroll-target="#metoda-trapezów">Metoda Trapezów</a></li>
+  <li><a href="#metoda-simpsona" id="toc-metoda-simpsona" class="nav-link" data-scroll-target="#metoda-simpsona">Metoda Simpsona</a></li>
+  <li><a href="#metoda-simpsona-38" id="toc-metoda-simpsona-38" class="nav-link" data-scroll-target="#metoda-simpsona-38">Metoda Simpsona 3/8</a></li>
+  <li><a href="#suma-kumulacyjna" id="toc-suma-kumulacyjna" class="nav-link" data-scroll-target="#suma-kumulacyjna">Suma Kumulacyjna</a></li>
+  </ul></li>
+  <li><a href="#przykłady-praktyczne" id="toc-przykłady-praktyczne" class="nav-link" data-scroll-target="#przykłady-praktyczne">Przykłady praktyczne</a></li>
+  <li><a href="#zadania" id="toc-zadania" class="nav-link" data-scroll-target="#zadania">Zadania</a>
+  <ul class="collapse">
+  <li><a href="#zadanie-1" id="toc-zadanie-1" class="nav-link" data-scroll-target="#zadanie-1">Zadanie 1</a></li>
+  <li><a href="#zadanie-2-ambitniejsze" id="toc-zadanie-2-ambitniejsze" class="nav-link" data-scroll-target="#zadanie-2-ambitniejsze">Zadanie 2 (ambitniejsze)</a></li>
+  <li><a href="#zadanie-3" id="toc-zadanie-3" class="nav-link" data-scroll-target="#zadanie-3">Zadanie 3</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MDaniol/pmk-notes/edit/main/labs/lab3.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/MDaniol/pmk-notes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="laboratorium-3" class="level1">
+<h1>Laboratorium 3</h1>
+<section id="zakres-tematyczny" class="level2">
+<h2 class="anchored" data-anchor-id="zakres-tematyczny">Zakres Tematyczny</h2>
+<ol type="1">
+<li>Całkowanie numeryczne</li>
+<li>Podstawowe algorytmy całkowania numerycznego</li>
+<li>Analiza błędu całkowania</li>
+<li>Całkowanie numeryczne, a analityczne</li>
+<li>Przykłady praktyczne</li>
+<li>Zadania do samodzielnego rozwiązania</li>
+</ol>
+</section>
+<section id="całkowanie-numeryczne" class="level2">
+<h2 class="anchored" data-anchor-id="całkowanie-numeryczne">Całkowanie numeryczne</h2>
+<p>Całkowanie numeryczne jest techniką matematyczną służącą do przybliżonego wyznaczania wartości całek oznaczonych. W wielu przypadkach funkcje, które chcemy całkować, mogą być zbyt skomplikowane, aby znaleźć ich analityczne rozwiązania, lub mogą być dostępne tylko w postaci dyskretnych zestawów danych. W takich sytuacjach techniki całkowania numerycznego stają się niezbędne.</p>
+<section id="metoda-prostokątów" class="level3">
+<h3 class="anchored" data-anchor-id="metoda-prostokątów">Metoda Prostokątów</h3>
+<p>Metoda prostokątów to jedna z najprostszych technik całkowania numerycznego. Jej idea polega na podziale obszaru pod krzywą funkcji na wiele małych prostokątów i następnie zsumowaniu pól tych prostokątów, aby uzyskać przybliżone pole pod krzywą.</p>
+<p>W metodzie punktu środkowego wartość funkcji w środkowym punkcie każdego prostokąta jest używana do określenia wysokości tego prostokąta.</p>
+<section id="procedura" class="level5">
+<h5 class="anchored" data-anchor-id="procedura">Procedura:</h5>
+<ol type="1">
+<li>Zakładamy, że chcemy obliczyć całkę funkcji <span class="math inline">\(f(x)\)</span> w przedziale <span class="math inline">\([a, b]\)</span>.</li>
+<li>Dzielimy przedział <span class="math inline">\([a, b]\)</span> na <span class="math inline">\(n\)</span> równych podprzedziałów o długości <span class="math inline">\(\Delta x\)</span>, gdzie: <span class="math display">\[\Delta x = \frac{b - a}{n}\]</span></li>
+<li>Wartość funkcji w punkcie środkowym <span class="math inline">\(x_i^*\)</span> każdego podprzedziału jest używana do obliczenia wysokości prostokąta. Gdzie <span class="math inline">\(x_i^* = a + \left(i - \frac{1}{2}\right) \Delta x\)</span> dla <span class="math inline">\(i = 1, 2, \dots, n\)</span>.</li>
+<li>Pole każdego prostokąta jest dane przez <span class="math inline">\(f(x_i^*) \Delta x\)</span>.</li>
+<li>Całkowite przybliżone pole pod krzywą to suma pól wszystkich prostokątów: <span class="math display">\[A \approx \sum_{i=1}^{n} f(x_i^*) \Delta x\]</span></li>
+</ol>
+</section>
+<section id="wzór" class="level5">
+<h5 class="anchored" data-anchor-id="wzór">Wzór:</h5>
+<p><span class="math display">\[\int_a^b f(x) \, dx \approx \sum_{i=1}^{n} f\left(a + \left(i - \frac{1}{2}\right) \Delta x\right) \Delta x\]</span></p>
+<p>Uproszczone przybliżenie wartości całki funkcji <span class="math inline">\(f(x)\)</span> na przedziale <span class="math inline">\([a, b]\)</span>, zakładając że bierzemy punkt w lewym górnym rogu prostokątu a nie w środku, gdzie dzielimy przedział na <span class="math inline">\(n\)</span> równych części o szerokości <span class="math inline">\(\Delta x\)</span>: <span class="math inline">\(\Delta x = \frac{b - a}{n}\)</span></p>
+<p>Przybliżenie regułą prostokątów jest: <span class="math display">\[\int_a^b f(x) dx \approx \sum_{i=0}^{n-1} f(a + i\Delta x) \Delta x\]</span></p>
+<p>W tym przypadku przyjmujemy wartość funkcji na lewym krańcu każdego podprzedziału (czyli lewych prostokątów) i mnożymy przez szerokość <span class="math inline">\(e\Delta x\)</span> dla każdego prostokąta.</p>
+<p>Metoda prostokątów jest stosunkowo prosta w implementacji i może być użyteczna w przypadkach, gdy funkcja jest stosunkowo gładka lub gdy dysponujemy dużą liczbą punktów do całkowania. Jednakże może nie być tak dokładna jak bardziej zaawansowane metody, takie jak metoda trapezów czy metoda Simpsona, zwłaszcza dla funkcji o skomplikowanym kształcie.</p>
+</section>
+</section>
+<section id="metoda-trapezów" class="level3">
+<h3 class="anchored" data-anchor-id="metoda-trapezów">Metoda Trapezów</h3>
+<p>Metoda trapezów to pierwsza z metod Newtona-Cotesa. Formuły Newtona-Cotesa są najpopularniejszymi schematami całkowania numerycznego. Opierają się one na strategii zastąpienia skomplikowanej funkcji lub danych tabelarycznych funkcją aproksymującą, która jest łatwa do całkowania:</p>
+<p><span class="math display">\[I = \int_a^bf(x)dx \approxeq \int_a^bf_n(x)dx\]</span></p>
+<p>gdzie <span class="math inline">\(f_n(x)\)</span> jest wielomianem przyjmującym postać:</p>
+<p><span class="math display">\[f_n(x) = a_0 + a_1x + ... + a_{n-1}x^{n-1}+a_nx^n\]</span></p>
+<p>a <span class="math inline">\(n\)</span> jest rzędem wielomianu.<br>
+<br>
+<strong>Metoda trapezów</strong> to najprostsza zamknięta formuła Newtona-Cotesa, w której funkcja jest przybliżana linią prostą (wielomianem pierwszego stopnia) na każdym podprzedziale.</p>
+<p><span class="math display">\[I \approxeq h\frac{f(x_0) + f(x_1)}{2} + h\frac{f(x_1) + f(x_2)}{2} + h\frac{f(x_{n-1}) + f(x_n)}{2}\]</span></p>
+<p>Czyli uogólniając: <span class="math display">\[I \approxeq \frac{h}{2} [f(x_0) + 2\sum_{i=1}^{n-1}f(x_i) + f(x_n)]\]</span></p>
+<p><img src="images/lab3_trapz.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kod użyty do wygenerowania tego rysunku
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiujemy funkcję</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.sin(x) <span class="op">+</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">*</span>np.sin(<span class="dv">3</span><span class="op">*</span>x)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Zakres całkowania od 0 do pi</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>a, b <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span><span class="op">*</span>np.pi</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Liczba trapezów</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiujemy szerokość trapezu</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>dx <span class="op">=</span> (b <span class="op">-</span> a) <span class="op">/</span> n</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Punkty x do obliczeń i wizualizacji</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(a, b, n<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> f(x)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Kolory z palety Material Design (ładnie wyglądają)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>fill_color <span class="op">=</span> <span class="st">'#BBDEFB'</span>  <span class="co"># light blue</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>edge_color <span class="op">=</span> <span class="st">'#1A237E'</span>  <span class="co"># dark blue</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>line_color <span class="op">=</span> <span class="st">'#1976D2'</span>  <span class="co"># blue</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Rysujemy funkcję</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>x_dense <span class="op">=</span> np.linspace(a, b, <span class="dv">400</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>plt.plot(x_dense, f(x_dense), color<span class="op">=</span>line_color, label<span class="op">=</span><span class="st">'f(x)'</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Rysujemy trapezy oraz ich obrysy</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    plt.fill_between([x[i], x[i<span class="op">+</span><span class="dv">1</span>]], [y[i], y[i<span class="op">+</span><span class="dv">1</span>]], color<span class="op">=</span>fill_color, edgecolor<span class="op">=</span>edge_color)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    plt.plot([x[i], x[i]], [<span class="dv">0</span>, y[i]], color<span class="op">=</span>edge_color)  <span class="co"># obrysy wertykalne</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Dodajemy podpisy dla kolejnych kroków</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    mid_point <span class="op">=</span> (x[i] <span class="op">+</span> x[i<span class="op">+</span><span class="dv">1</span>]) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    plt.text(mid_point, <span class="fl">0.2</span>, <span class="ss">f'h</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>plt.plot([x[<span class="op">-</span><span class="dv">1</span>], x[<span class="op">-</span><span class="dv">1</span>]], [<span class="dv">0</span>, y[<span class="op">-</span><span class="dv">1</span>]], color<span class="op">=</span>edge_color)  <span class="co"># ostatni obrys wertykalny</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>plt.text(a <span class="op">+</span> <span class="fl">0.2</span>, <span class="op">-</span><span class="fl">0.4</span>, <span class="ss">f'h = </span><span class="sc">{</span>dx<span class="sc">:.4f}</span><span class="ss">'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>plt.ylim([<span class="op">-</span><span class="fl">0.5</span>, <span class="dv">2</span>])</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Pseudokod dla metody trapezów:</p>
+<pre class="pseudocode"><code>Function TrapezoidalRuleDiscrete(y, n):
+   h = (b - a) / (n - 1)
+   integral = 0.5 * (y[0] + y[n-1])
+
+   For i from 1 to n-2:
+      integral = integral + y[i]
+
+   integral = integral * h
+   Return integral</code></pre>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Eksperyment 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Przeprowadź eksperyment i spróbuj obliczyć całki dla różnych funkcji numerycznych metodą trapezów z różną długością kroku. Funkcje możesz wygenerować przy pomocy następującego kodu:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>start <span class="op">=</span> <span class="op">-</span>np.pi</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>end <span class="op">=</span> np.pi </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>step <span class="op">=</span> <span class="fl">0.000001</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> <span class="bu">int</span>((end <span class="op">-</span> start) <span class="op">/</span> step)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(start, end, samples)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> np.cos(x) <span class="op">+</span> x<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Przeprowadź analizę błędu całkowania.<br>
+Co dzieje się z błędem wraz ze zmianą długości kroku.<br>
+W jaki sposób się zmienia?<br>
+Porównaj to z wartością całki obliczoną analitycznie.<br>
+Porównaj czas wykonywania całkowania dla sygnałów o różnej długości i dla różnych typów danych.</p>
+</div>
+</div>
+</section>
+<section id="metoda-simpsona" class="level3">
+<h3 class="anchored" data-anchor-id="metoda-simpsona">Metoda Simpsona</h3>
+<p>Drugą z omawianych metod całkowania numerycznego jest metoda Simpsona. Polega ona na użyciu wielomianu drugiego stopnia do przybliżenia funkcji w danym przedziale.</p>
+<p><span class="math display">\[I = \int_a^bf(x)dx \approxeq \int_a^bf_s(x)dx\]</span></p>
+<p>Pole powierzhni pod wykresem funkcji <span class="math inline">\(f_s\)</span> reprezentującej przybliżenie funkcji <span class="math inline">\(\int_a^b(fx)dx\)</span> jest dane wzorem</p>
+<p><span class="math display">\[I \approxeq \frac{h}{3} [f_s(x_0) + 4\sum_{i = 1,3,5...}^{n-1}{f_s(x_i)} + 2\sum_{j = 2,4,6...}^{n-2}f_s(x_j) + f_s(x_n)\]</span></p>
+<p>Wzór ten można wyprowadzić z przybliżenia Lagrange’s wielomianu stopnia drugiego (wykład).</p>
+<p>Błąd w metodzie Simpsona 1/3 względem</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ograniczenia metody Simpsona 1/3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Metoda Simpsona 1/3 wymaga aby ilość przedziałów była parzysta. W sytuacji kiedy liczba przedziałów jest nieparzysta na pierwszych lub ostatnich trzech z nich możemy przeprowadzić całkowanie metodą <strong>Simpsona 3/8</strong>.</p>
+</div>
+</div>
+<p><img src="images/lab3_simps_13.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kod użyty do wygenerowania tego rysunku
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the function</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.sin(x) <span class="op">+</span> (<span class="dv">1</span><span class="op">/</span><span class="dv">3</span>)<span class="op">*</span>np.sin(<span class="dv">3</span><span class="op">*</span>x)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Range for integration</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>a, b <span class="op">=</span> <span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>np.pi</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of intervals (must be even for Simpson's 1/3 rule)</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>, <span class="st">"Number of intervals must be even for Simpson's 1/3 rule"</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Width of an interval</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>dx <span class="op">=</span> (b <span class="op">-</span> a) <span class="op">/</span> n</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Points x for calculation and visualization</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(a, b, n<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> f(x)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the approximation using Simpson's 1/3 rule</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>integral_approx <span class="op">=</span> dx<span class="op">/</span><span class="dv">3</span> <span class="op">*</span> (y[<span class="dv">0</span>] <span class="op">+</span> y[<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>np.<span class="bu">sum</span>(y[<span class="dv">1</span>:<span class="op">-</span><span class="dv">1</span>:<span class="dv">2</span>]) <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>np.<span class="bu">sum</span>(y[<span class="dv">2</span>:<span class="op">-</span><span class="dv">2</span>:<span class="dv">2</span>]))</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Colors from Material Design palette</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>fill_color <span class="op">=</span> <span class="st">'#BBDEFB'</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>edge_color <span class="op">=</span> <span class="st">'#1A237E'</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>line_color <span class="op">=</span> <span class="st">'#1976D2'</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>point_color <span class="op">=</span> <span class="st">'#D32F2F'</span>  <span class="co"># red color for points</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the function</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>x_dense <span class="op">=</span> np.linspace(a, b, <span class="dv">400</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>plt.plot(x_dense, f(x_dense), color<span class="op">=</span>line_color, label<span class="op">=</span><span class="st">'f(x)'</span>)</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw parabolic sections and mark the points</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n, <span class="dv">2</span>):</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    xx <span class="op">=</span> np.linspace(x[i], x[i<span class="op">+</span><span class="dv">2</span>], <span class="dv">100</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    yy <span class="op">=</span> (</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>        f(x[i])<span class="op">*</span>(xx <span class="op">-</span> x[i<span class="op">+</span><span class="dv">1</span>])<span class="op">*</span>(xx <span class="op">-</span> x[i<span class="op">+</span><span class="dv">2</span>])<span class="op">/</span>((x[i] <span class="op">-</span> x[i<span class="op">+</span><span class="dv">1</span>])<span class="op">*</span>(x[i] <span class="op">-</span> x[i<span class="op">+</span><span class="dv">2</span>]))</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> f(x[i<span class="op">+</span><span class="dv">1</span>])<span class="op">*</span>(xx <span class="op">-</span> x[i])<span class="op">*</span>(xx <span class="op">-</span> x[i<span class="op">+</span><span class="dv">2</span>])<span class="op">/</span>((x[i<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span> x[i])<span class="op">*</span>(x[i<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span> x[i<span class="op">+</span><span class="dv">2</span>]))</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> f(x[i<span class="op">+</span><span class="dv">2</span>])<span class="op">*</span>(xx <span class="op">-</span> x[i])<span class="op">*</span>(xx <span class="op">-</span> x[i<span class="op">+</span><span class="dv">1</span>])<span class="op">/</span>((x[i<span class="op">+</span><span class="dv">2</span>] <span class="op">-</span> x[i])<span class="op">*</span>(x[i<span class="op">+</span><span class="dv">2</span>] <span class="op">-</span> x[i<span class="op">+</span><span class="dv">1</span>]))</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    plt.fill_between(xx, yy, color<span class="op">=</span>fill_color, edgecolor<span class="op">=</span>edge_color)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add steps annotations</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    plt.text((x[i] <span class="op">+</span> x[i<span class="op">+</span><span class="dv">2</span>]) <span class="op">/</span> <span class="dv">2</span>, <span class="fl">1.4</span>, <span class="ss">f'step </span><span class="sc">{</span>i<span class="op">//</span><span class="dv">2</span><span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Marking points: start, middle, and end</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    plt.scatter([x[i], x[i<span class="op">+</span><span class="dv">1</span>], x[i<span class="op">+</span><span class="dv">2</span>]], [y[i], y[i<span class="op">+</span><span class="dv">1</span>], y[i<span class="op">+</span><span class="dv">2</span>]], color<span class="op">=</span>point_color, zorder<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjusted labels to avoid overlap</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    offset <span class="op">=</span> <span class="fl">0.15</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    plt.text(x[i], y[i] <span class="op">-</span> offset <span class="cf">if</span> y[i] <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> y[i] <span class="op">+</span> offset, <span class="ss">f'Start'</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">8</span>, va<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    plt.text(x[i<span class="op">+</span><span class="dv">1</span>], y[i<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span> offset, <span class="ss">f'Mid'</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">8</span>, va<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    plt.text(x[i<span class="op">+</span><span class="dv">2</span>], y[i<span class="op">+</span><span class="dv">2</span>] <span class="op">+</span> offset <span class="cf">if</span> y[i<span class="op">+</span><span class="dv">2</span>] <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> y[i<span class="op">+</span><span class="dv">2</span>] <span class="op">-</span> offset, <span class="ss">f'End'</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">8</span>, va<span class="op">=</span><span class="st">'center'</span>)</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>plt.text(a <span class="op">+</span> <span class="fl">0.2</span>, <span class="op">-</span><span class="fl">0.3</span>, <span class="ss">f'h = </span><span class="sc">{</span>dx<span class="sc">:.4f}</span><span class="ss">'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>plt.ylim([<span class="op">-</span><span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Eksperyment 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Przeprowadź analogiczny eksperyment do eksperymentu 1 ale z wykorzystaniem metody Simpsona. Możesz skorzystać z funkcji dostępnej w pakiecie <code>scipy</code> o nazwie <code>scipy.integrate.simpson</code></p>
+</div>
+</div>
+</section>
+<section id="metoda-simpsona-38" class="level3">
+<h3 class="anchored" data-anchor-id="metoda-simpsona-38">Metoda Simpsona 3/8</h3>
+<p>W przypadku metody Simpsona 3/8 jej sposób działania jest podobny do metody Simpsona 1/3, jednak zamiast wielomianu stopnia drugiego, wykorzystamy wielomian stopnia trzeciego.</p>
+<p><span class="math display">\[I = \int_a^bf(x)dx \approxeq \int_a^bf_3(x)dx\]</span></p>
+<p>a to po odpowiednich przekształceniach wynikających z przybliżenia Lagrange’a wielomianu prowadzi do wzoru:</p>
+<p><span class="math display">\[I \approxeq \frac{3h}{8}[f(x_0) + 3f(x_1) + 3f(x_2) + f(x_3)]\]</span></p>
+<p>Regułę Simpsona 3/8 można stosować w połączeniu z metodą Simpsona 1/3 gdy mamy do czynienia z nieparzystą liczbą przedziałów.</p>
+</section>
+<section id="suma-kumulacyjna" class="level3">
+<h3 class="anchored" data-anchor-id="suma-kumulacyjna">Suma Kumulacyjna</h3>
+<p>Suma kumulacyjna, inaczej nazywana sumą skumulowaną lub kumulatą, to suma wartości danego zestawu danych w kolejnych punktach, zamiast pojedynczych wartości. Daje to ciąg liczb, w którym każda kolejna wartość to suma wszystkich poprzednich wartości w zestawie plus bieżąca wartość.</p>
+<p><span class="math display">\[y[i] = \sum_{k=1}^{i}k[i]\]</span> <span class="math display">\[x = [x_1, x_2, x_3, x_4...x_n]\]</span></p>
+<p><span class="math display">\[y = [x_1, x_1 + x_2, x_1+x_2+x_3...]\]</span></p>
+<p>Przykład:</p>
+<p>Załóżmy, że mamy następujący zestaw danych:</p>
+<p><span class="math display">\[A = \{ 1, 2, 3, 4 \}\]</span></p>
+<p>Suma kumulacyjna tego zestawu będzie wyglądała następująco:</p>
+<p><span class="math display">\[\{ 1, 1+2, 1+2+3, 1+2+3+4 \} = \{ 1, 3, 6, 10 \}\]</span></p>
+<p>Ostateczny ciąg sumy kumulacyjnej to {1, 3, 6, 10}.</p>
+<p>W wielu zastosowaniach, takich jak analiza finansowa, statystyka czy obróbka sygnałów, suma kumulacyjna jest używana do obliczenia sumy wartości w określonym zakresie lub do analizy wzrostu wartości w czasie.</p>
+</section>
+</section>
+<section id="przykłady-praktyczne" class="level2">
+<h2 class="anchored" data-anchor-id="przykłady-praktyczne">Przykłady praktyczne</h2>
+<p>Obszar pod zespołem QRS (często nazywany obszarem QRS) w elektrokardiogramie (EKG) może dostarczyć cennych informacji diagnostycznych na temat aktywności elektrycznej serca i stanu mięśnia sercowego.</p>
+<p><a href="https://www.ahajournals.org/doi/10.1161/CIRCEP.118.006497">QRS Area Is a Strong Determinant of Outcome in Cardiac Resynchronization Therapy</a></p>
+<p><img src="images/lab3_qrs.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kod użyty do wygenerowania tego przykładu
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> neurokit2 <span class="im">as</span> nk</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a synthetic ECG signal (5 seconds)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ecg_signal <span class="op">=</span> nk.ecg_simulate(duration<span class="op">=</span><span class="dv">5</span>, sampling_rate<span class="op">=</span><span class="dv">1000</span>, heart_rate<span class="op">=</span><span class="dv">70</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Detect R-peaks</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>_, rpeaks <span class="op">=</span> nk.ecg_peaks(ecg_signal, sampling_rate<span class="op">=</span><span class="dv">1000</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Delineate the ECG signal to extract waves</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>_, waves_peak <span class="op">=</span> nk.ecg_delineate(ecg_signal, rpeaks, sampling_rate<span class="op">=</span><span class="dv">1000</span>, method<span class="op">=</span><span class="st">"peak"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the ECG signal</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plt.plot(ecg_signal, label<span class="op">=</span><span class="st">'ECG Signal'</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>qrs_areas <span class="op">=</span> []</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a colormap for varying QRS colors</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>color_map <span class="op">=</span> plt.cm.get_cmap(<span class="st">'viridis'</span>, <span class="bu">len</span>(waves_peak[<span class="st">'ECG_Q_Peaks'</span>]))</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Highlight the QRS complex using the Q-peaks and S-peaks as boundaries</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, (q_peak, s_peak) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(waves_peak[<span class="st">'ECG_Q_Peaks'</span>], waves_peak[<span class="st">'ECG_S_Peaks'</span>])):</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> np.isnan(q_peak) <span class="kw">and</span> <span class="kw">not</span> np.isnan(s_peak):</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Determine the local baseline as the mean value before Q and after S</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        local_baseline <span class="op">=</span> np.mean([ecg_signal[<span class="bu">int</span>(q_peak) <span class="op">-</span> <span class="dv">5</span>:<span class="bu">int</span>(q_peak)], ecg_signal[<span class="bu">int</span>(s_peak):<span class="bu">int</span>(s_peak) <span class="op">+</span> <span class="dv">5</span>]])</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate the QRS area related to the local baseline using the trapezoidal rule</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        qrs_area <span class="op">=</span> np.trapz(ecg_signal[<span class="bu">int</span>(q_peak):<span class="bu">int</span>(s_peak)] <span class="op">-</span> local_baseline)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        qrs_areas.append(qrs_area)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Highlight the QRS complex on the plot with different colors</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        plt.fill_between(<span class="bu">range</span>(<span class="bu">int</span>(q_peak), <span class="bu">int</span>(s_peak)), ecg_signal[<span class="bu">int</span>(q_peak):<span class="bu">int</span>(s_peak)], local_baseline, color<span class="op">=</span>color_map(idx), alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="ss">f'QRS Area </span><span class="sc">{</span>idx <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss"> = </span><span class="sc">{</span>qrs_area<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the legend and title</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>handles, labels <span class="op">=</span> plt.gca().get_legend_handles_labels()</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>by_label <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(labels, handles))</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>plt.legend(by_label.values(), by_label.keys(), loc<span class="op">=</span><span class="st">"upper left"</span>)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"ECG Signal with Highlighted QRS Area"</span>)</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the QRS areas</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx, area <span class="kw">in</span> <span class="bu">enumerate</span>(qrs_areas, <span class="dv">1</span>):</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"QRS complex </span><span class="sc">{</span>idx<span class="sc">}</span><span class="ss">: Area = </span><span class="sc">{</span>area<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="zadania" class="level2">
+<h2 class="anchored" data-anchor-id="zadania">Zadania</h2>
+<section id="zadanie-1" class="level3">
+<h3 class="anchored" data-anchor-id="zadanie-1">Zadanie 1</h3>
+<p>Zaimplementuj funkcję (za pomocą pętli for, bez użycia gotowych funkcji) implementującą metodę trapezów, metodę Simpsona 1/3 i metodę Simpsona 3/8. Porównaj działanie do funkcji dostępnych w bibliotece SciPy (zarówno pod kątem czasu obliczeń jak i uzyskanych wyników). Porównaj dokładność wyznaczonych sum z wartością oczekiwaną, dla wybranych, znanych całek oznaczonych.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_integrate(y, dx, method<span class="op">=</span>”trapezoidal”): </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>   <span class="co">#methods: trapezoidal, simpson_13, simpson_38 pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="zadanie-2-ambitniejsze" class="level3">
+<h3 class="anchored" data-anchor-id="zadanie-2-ambitniejsze">Zadanie 2 (ambitniejsze)</h3>
+<p>Zaimplementuj własny generator do sumy kumulacyjnej (za pomocą pętli for) i korzystając z niej zaimplementuj rekurencyjnie całkowanie z Zadania 1. Dokonaj wizualizacji przykładowych funkcji i ich całek. Jakie zalety ma implementacja rekurencyjna całkowania? Jakie wady? Porównaj szybkość działania implementacji rekurencyjnej całkowania metodą trapezów/Simpsona z wbudowaną funkcją do całkowania kwadraturą Gaussa z biblioteki SciPy.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_integrate_recur(y, dx, mode<span class="op">=</span><span class="st">"trapezoidal"</span>): </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#trapezoidal, simpson_13, simpson_38</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">pass</span> <span class="co"># should use yield</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="zadanie-3" class="level3">
+<h3 class="anchored" data-anchor-id="zadanie-3">Zadanie 3</h3>
+<p>Zaimplementuj własną funkcję do całkowania funkcji dwóch zmiennych metodą trapezów. Porównaj uzyskane wyniki z metodą opartą o kwadratury Gaussa dla dwóch zmiennych pod względem dokładności i szybkości wykonywania. W jakich przypadkach zaimplementowana metoda może być bardziej użyteczna od metod opartych o kwadratury Gaussa?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> our_integrate_2d(z, x_step, y_step): <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../labs/lab2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Laboratorium 2</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© CC-By Mateusz Danioł, 2022</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>
